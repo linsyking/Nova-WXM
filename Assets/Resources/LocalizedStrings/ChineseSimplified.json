@@ -23,7 +23,7 @@
   "config.alert.resetalerts": "要重置操作提示吗？",
   "config.alert.resetdefault": "要重置默认设置吗？",
   "config.changewindowsize": "拖动窗口边缘\n可以改变大小",
-  "config.exitgame": "退出游戏",
+  "config.exitgame": "清除数据",
   "config.item.autospeed": "自动模式速度",
   "config.item.buttonringsize": "环形菜单大小",
   "config.item.charactervolume.ergong": "王二宫",
@@ -87,7 +87,7 @@
   "help.close": "关      闭",
   "ingame.auto.button": "自动",
   "ingame.config.button": "设置",
-  "ingame.exit.confirm": "要退出游戏吗？",
+  "ingame.exit.confirm": "要清除全部数据吗？",
   "ingame.fastforward.button": "快进",
   "ingame.first.auto": "自动模式默认速度\n具有最佳演出效果",
   "ingame.first.hint.mouse": "右键打开菜单",
@@ -108,7 +108,7 @@
   "musicgallery.title": "音乐鉴赏",
   "title.first.selectchapter": "现在开始游戏\n可以选择章节",
   "title.menu.config": "系统设置",
-  "title.menu.exit": "退出游戏",
+  "title.menu.exit": "清除数据",
   "title.menu.gallery": "图片鉴赏",
   "title.menu.help": "操作说明",
   "title.menu.load": "读取存档",
@@ -116,5 +116,5 @@
   "title.menu.start": "开始游戏",
   "title.selectchapter.locked": "？？？",
   "title.selectchapter.return": "返回",
-  "title.subtitle": "Nova框架示例工程"
+  "title.subtitle": "JI欢迎您！"
 }

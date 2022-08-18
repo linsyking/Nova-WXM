@@ -1,0 +1,158 @@
+@<|
+label('ch_01', '文艺部欢迎您')
+is_unlocked_start()
+|>
+<|
+stop(bgm)
+anim:trans(bg, 'wuhui/entry', 'fade', 1, { _Mask = 'Masks/eye' })
+sound("cicada")
+box_hide_show(1)
+notify("滑动屏幕来唤出菜单")
+|>
+我：：啊，好热啊！
+
+<|
+auto_save()
+play(bgm, "xiben")
+|>
+我考上了上海交通大学密西根学院，现在已经开学2周了。
+
+9月初还是很热，但因为宿舍里有空调，所以没问题！
+
+小明：：快回宿舍吧，外面真热。
+
+我：：嗯，是啊。
+
+小明是我的高中同学，他也考上了密院。
+
+<|
+box_hide_show(2)
+anim:trans(bg, 'env/road_afternoon', 'fade', 2)
+anim:fade_out(bgm)
+|>
+走着走着，到下午了
+
+<|
+anim:vfx(bg, 'gaussian_blur', {0, 1}, 1, { _Size = 10 })
+|>
+走累了（高斯模糊）
+
+<|
+anim:vfx(bg, 'radial_blur', {0, 1}, 1, { _Size = 50 })
+|>
+冲！（Radial模糊）
+
+<|
+anim:vfx(bg, 'motion_blur', {0, 1}, 1, { _Size = 50 })
+|>
+糊了（动态模糊）
+
+<|
+anim:vfx(bg, 'motion_blur', {1, 0}, 0.5, { _Size = 50 })
+|>
+我：：（不扯了）嗯，快到了。
+
+<|
+anim:trans(bg, 'room', 'fade', 1)
+play(bgm, "gaotian")
+|>
+我：：芜湖！真爽！
+
+<|
+anim:tint(bg, {1,1,1,0}, 1)
+show(b1bg, 'room')
+anim_hold:move(b1bg, {7, 5, 2}, 0):move(b1bg, {-7, 5, 2}, 30)
+|>
+我喝了一瓶刚从三餐便利店买来的冷饮，太爽了！
+
+小明：：对了，你有没有加密院学生会的公众号？
+
+我：：学生会？
+
+小明：：是啊，密院学生会是密院最大的学生组织，他们的公众号上有很多重要的信息呢！
+
+我：：诶？那我赶紧加下。
+
+<|
+anim:tint(bg, {1,1,1,1}, 3)
+box_hide_show(3)
+|>
+（搜索JIers公众号中...）
+
+<|
+hide(b1bg)
+show(f1bg, "item/jiers", {0,-7}, {1,1,1,0})
+anim:move(f1bg, {0,0})
+anim:tint(f1bg, {1,1,1,1})
+stop_ff()
+box_hide_show(1.5)
+|>
+我：：诶？这是什么？
+
+公众号的历史纪录第一条：《密院学生会招新开始啦！》
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+|>
+芜湖。
+
+小明：：你想报名学生会吗？我想报<b>技术部</b>。
+
+我：：嗯，我看看，听上去蛮有意思的嘛。
+
+<|
+auto_save()
+|>
+我：：我喜欢<size=150%>文艺部</size>的小姐姐诶！我想报名<size=150%>文艺部</size>！
+
+<|
+stop(bgm)
+anim:vfx(bg, 'broken_tv', {0, 0.5}, 1)
+box_hide_show(1)
+|>
+嗯？怎么回事？
+
+我怎么看不清楚了？
+
+<|
+anim:vfx(bg, 'broken_tv', {0.5, 3}, 1)
+box_hide_show(1)
+|>
+我怎么听不见声音了？
+
+我：：嗨！有人吗？
+
+...
+
+我的意识逐渐远去。
+
+<|
+anim:tint(bg, {1,0,0,0.3},1)
+|>
+似乎没有人来救我。
+
+<|
+anim:tint(bg, {1,0,0,0},1)
+set_box('hide')
+|>
+
+<|
+vfx(bg, 'broken_tv', 0)
+tint(bg, {1,1,1,1})
+show(bg, "black")
+anim:trans(bg, 'rain', 'fade', 4, { _Mask = 'Masks/eye' })
+play(bgs, 'rain')
+volume(bgs, 0)
+anim:volume(bgs, 0.2, 6)
+box_hide_show(5)
+|>
+我：：...
+
+我，在哪里？
+
+<|
+auto_save()
+|>
+（出现在龙宾楼的旁边）
+@<| is_end() |>

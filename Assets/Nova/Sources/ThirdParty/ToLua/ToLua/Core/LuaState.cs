@@ -723,10 +723,10 @@ namespace LuaInterface
 
         public void AddSearchPath(string fullPath)
         {
-            if (!Path.IsPathRooted(fullPath))
-            {
-                throw new LuaException(fullPath + " is not a full path");
-            }
+            // if (!Path.IsPathRooted(fullPath))
+            // {
+            //     throw new LuaException(fullPath + " is not a full path");
+            // }
 
             fullPath = ToPackagePath(fullPath);
             LuaFileUtils.Instance.AddSearchPath(fullPath);
@@ -734,10 +734,10 @@ namespace LuaInterface
 
         public void RemoveSeachPath(string fullPath)
         {
-            if (!Path.IsPathRooted(fullPath))
-            {
-                throw new LuaException(fullPath + " is not a full path");
-            }
+            // if (!Path.IsPathRooted(fullPath))
+            // {
+            //     throw new LuaException(fullPath + " is not a full path");
+            // }
 
             fullPath = ToPackagePath(fullPath);
             LuaFileUtils.Instance.RemoveSearchPath(fullPath);

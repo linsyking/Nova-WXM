@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,6 +13,7 @@ namespace Nova
         Load
     }
 
+    [ExportCustomType]
     public class SaveViewController : ViewControllerBase
     {
         [SerializeField] private GameObject saveEntryPrefab;
@@ -159,6 +160,7 @@ namespace Nova
 
             gameState.nodeChanged.AddListener(OnNodeChanged);
             gameState.dialogueChanged.AddListener(OnDialogueChanged);
+            LuaRuntime.Instance.BindObject("saveViewController", this);
         }
 
         protected override void Start()
@@ -387,20 +389,21 @@ namespace Nova
 
         private void _autoSaveBookmark(int beginSaveID, string tagText)
         {
+            Debug.Log($"AUTOSave Bookmark,{beginSaveID}, {tagText}");
             var bookmark = gameState.GetBookmark();
             bookmark.description = currentDialogue.FormatNameDialogue();
             var texture = ScreenCapturer.GetBookmarkThumbnailTexture();
             bookmark.screenshot = texture;
-
             int saveID = checkpointManager.QueryMinUnusedSaveID(beginSaveID, beginSaveID + maxSaveEntry);
             if (saveID >= beginSaveID + maxSaveEntry)
             {
                 saveID = checkpointManager.QuerySaveIDByTime(beginSaveID, beginSaveID + maxSaveEntry,
                     SaveIDQueryType.Earliest);
             }
-
             checkpointManager.SaveBookmark(saveID, bookmark);
             Destroy(texture);
+
+            Alert.Show("已在此处自动存档");
         }
 
         public void AutoSaveBookmark()
@@ -410,8 +413,10 @@ namespace Nova
 
         private void _quickSaveBookmark()
         {
+            Debug.Log("QuickSave__");
             _autoSaveBookmark((int)BookmarkType.QuickSave, I18n.__("bookmark.quicksave.page"));
-            viewManager.TryPlaySound(saveActionSound);
+            Debug.Log("QuickSave__2");
+            //viewManager.TryPlaySound(saveActionSound);
             Alert.Show(I18n.__("bookmark.quicksave.complete"));
         }
 

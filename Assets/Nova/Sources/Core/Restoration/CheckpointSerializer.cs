@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 using UnityEngine;
+using WXDM;
+using WeChatWASM;
 
 namespace Nova
 {
@@ -12,9 +12,7 @@ namespace Nova
     {
         private const int Version = 2;
 
-        private static readonly byte[] FileHeader = Encoding.ASCII.GetBytes("NOVASAVE");
-
-        private readonly BinaryFormatter formatter = new BinaryFormatter();
+        private static readonly string FileHeader = "NOVASAVE";
 
         public T SafeRead<T>(string path)
         {
@@ -22,26 +20,13 @@ namespace Nova
             {
                 try
                 {
-                    using (var fs = File.OpenRead(path))
-                    {
-                        var result = Read<T>(fs);
-                        return result;
-                    }
+                    var result = Read<T>(path);
+                    return result;
                 }
                 catch (Exception e)
                 {
                     Debug.LogWarning($"Nova: {path} is corrupted.\n{e.Message}\nTry to recover...");
-                    var oldPath = path + ".old";
-                    using (var fs = File.OpenRead(oldPath))
-                    {
-                        var result = Read<T>(fs);
-
-                        // Recover only if the old file is good
-                        File.Delete(path); // no exception if not exist
-                        File.Move(oldPath, path); // exception if exists
-
-                        return result;
-                    }
+                    throw;
                 }
             }
             catch (Exception e)
@@ -55,25 +40,13 @@ namespace Nova
 
         public void SafeWrite<T>(T obj, string path)
         {
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
             Debug.Log($"SafeWrite {obj:GetType()} {path}");
-#endif
+//#endif
 
             try
             {
-                var oldPath = path + ".old";
-                if (File.Exists(path))
-                {
-                    File.Delete(oldPath); // no exception if not exist
-                    File.Move(path, oldPath); // exception if exists
-                }
-
-                using (var fs = File.OpenWrite(path)) // overwrite if needed
-                {
-                    Write(obj, fs); // May be interrupted
-                }
-
-                File.Delete(oldPath);
+                Write(obj, path); // May be interrupted
             }
             catch (Exception e)
             {
@@ -88,41 +61,69 @@ namespace Nova
             }
         }
 
-        private T Read<T>(Stream s)
+        private T Read<T>(string s)
         {
-            using (var bw = new BinaryReader(s))
+#if true
+            var fileHeader = PlayerPrefs.GetString("FileHeader", "");
+            var version = PlayerPrefs.GetInt("Version", -1);
+            var serialized_data = PlayerPrefs.GetString(s, "");
+#else
+            Debug.Log($"Current WX File path: {WX.env.USER_DATA_PATH}");
+            var fileHeader = WXDataManager.getString("FileHeader");
+            var version = WXDataManager.getInt("Version");
+            var serialized_data = WXDataManager.getString(s);
+#endif
+
+            Utils.RuntimeAssert(Version >= version, "Save file is incompatible with the current version of Nova.");
+            Utils.RuntimeAssert(fileHeader == FileHeader, "Save file is not formatted.");
+
+
+            //Debug.Log($"Reading from {s}, {serialized_data}");
+            // Start Parsing
+
+            Utils.RuntimeAssert(serialized_data != "", "Save file is empty.");
+
+            BinaryFormatter formatter = new BinaryFormatter();
+            byte[] bta = Convert.FromBase64String(serialized_data);
+            MemoryStream ms = new MemoryStream(bta);
+            using (var compressed = new DeflateStream(ms, CompressionMode.Decompress))
+            using (var uncompressed = new MemoryStream())
             {
-                var fileHeader = bw.ReadBytes(FileHeader.Length);
-                Utils.RuntimeAssert(FileHeader.SequenceEqual(fileHeader), "Invalid save file format.");
-
-                int version = bw.ReadInt32();
-                Utils.RuntimeAssert(Version >= version, "Save file is incompatible with the current version of Nova.");
-
-                using (var compressed = new DeflateStream(s, CompressionMode.Decompress))
-                using (var uncompressed = new MemoryStream())
-                {
-                    compressed.CopyTo(uncompressed);
-                    uncompressed.Position = 0;
-                    return (T)formatter.Deserialize(uncompressed);
-                }
+                compressed.CopyTo(uncompressed);
+                uncompressed.Position = 0;
+                return (T)formatter.Deserialize(uncompressed);
             }
         }
-
-        private void Write<T>(T obj, Stream s)
+        private void Write<T>(T obj, string s)
         {
-            using (var bw = new BinaryWriter(s))
-            {
-                bw.Write(FileHeader);
-                bw.Write(Version);
+#if true
 
-                using (var compressed = new DeflateStream(s, CompressionMode.Compress))
-                using (var uncompressed = new MemoryStream())
-                {
-                    formatter.Serialize(uncompressed, obj);
-                    uncompressed.Position = 0;
-                    uncompressed.CopyTo(compressed);
-                }
+            // Write obj to the s field of playerpref
+            PlayerPrefs.SetString("FileHeader", FileHeader);
+            PlayerPrefs.SetInt("Version", Version);
+#else
+            WXDataManager.setString("FileHeader", FileHeader);
+            WXDataManager.setInt("Version", Version);
+#endif
+
+            BinaryFormatter formatter = new BinaryFormatter();
+
+            var compressStream = new MemoryStream();
+            using (var compressed = new DeflateStream(compressStream, CompressionMode.Compress))
+            using (var uncompressed = new MemoryStream())
+            {
+                formatter.Serialize(uncompressed, obj);
+                uncompressed.Position = 0;
+                uncompressed.CopyTo(compressed);
             }
+            var converted = Convert.ToBase64String(compressStream.ToArray());
+            //Debug.Log($"Writing to {s}, {converted}");
+#if true
+            PlayerPrefs.SetString(s, converted);
+#else
+            WXDataManager.setString(s, converted);
+#endif
         }
     }
+
 }

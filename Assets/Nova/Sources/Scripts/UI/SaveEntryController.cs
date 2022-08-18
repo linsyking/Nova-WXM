@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -52,8 +52,20 @@ namespace Nova
         {
             set
             {
-                idText.color = value == SaveViewMode.Save ? saveTextColor : loadTextColor;
-                idTextOutline.effectColor = value == SaveViewMode.Save ? saveTextOutlineColor : loadTextOutlineColor;
+                if (idText.text != "返回")
+                {
+
+                    idText.fontSize = 30;
+                    idText.color = value == SaveViewMode.Save ? saveTextColor : loadTextColor;
+                    idTextOutline.effectColor = value == SaveViewMode.Save ? saveTextOutlineColor : loadTextOutlineColor;
+
+                }
+                else
+                {
+                    idText.fontSize = 40;
+                    idText.color = Color.white;
+                    idTextOutline.effectColor = Color.black;
+                }
             }
         }
 
@@ -73,7 +85,10 @@ namespace Nova
 
         public void InitAsPreview(Sprite newThumbnailSprite, UnityAction onThumbnailButtonClicked)
         {
-            idText.text = "--";
+            idText.text = "返回";
+            idText.fontSize = 40;
+            idText.color = Color.white;
+            idTextOutline.effectColor = Color.black;
             // headerText.gameObject.SetActive(false);
             dateText.gameObject.SetActive(false);
 

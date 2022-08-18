@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+using UnityEngine;
+using WeChatWASM;
 
 namespace Nova
 {
@@ -42,10 +43,12 @@ namespace Nova
         public void CaptureGameTexture()
         {
             capturedGameTexture = GetGameTexture(capturedGameTexture, withUI: false);
+
         }
 
         public static Texture2D GetBookmarkThumbnailTexture()
         {
+#if UNITY_EDITOR
             var texture = new Texture2D(Bookmark.ScreenshotWidth, Bookmark.ScreenshotHeight, TextureFormat.RGB24,
                 false);
             var fullSizedRenderTexture = RenderTexture.GetTemporary(RealScreen.width, RealScreen.height, 24);
@@ -55,7 +58,6 @@ namespace Nova
 
             Graphics.Blit(fullSizedRenderTexture, renderTexture);
             RenderTexture.ReleaseTemporary(fullSizedRenderTexture);
-
             RenderTexture.active = renderTexture;
             texture.ReadPixels(new Rect(0, 0, Bookmark.ScreenshotWidth, Bookmark.ScreenshotHeight), 0, 0, false);
             RenderTexture.active = null;
@@ -63,6 +65,37 @@ namespace Nova
             texture.Apply();
 
             return texture;
+
+
+#else
+            var platform = WX.GetSystemInfoSync().platform;
+            if (platform != "ios" && platform != "mac")
+            {
+                var texture = new Texture2D(Bookmark.ScreenshotWidth, Bookmark.ScreenshotHeight, TextureFormat.RGB24,
+                false);
+                var fullSizedRenderTexture = RenderTexture.GetTemporary(RealScreen.width, RealScreen.height, 24);
+                var renderTexture = RenderTexture.GetTemporary(Bookmark.ScreenshotWidth, Bookmark.ScreenshotHeight, 24);
+
+                UICameraHelper.Active.RenderToTexture(fullSizedRenderTexture);
+
+                Graphics.Blit(fullSizedRenderTexture, renderTexture);
+                RenderTexture.ReleaseTemporary(fullSizedRenderTexture);
+                RenderTexture.active = renderTexture;
+                texture.ReadPixels(new Rect(0, 0, Bookmark.ScreenshotWidth, Bookmark.ScreenshotHeight), 0, 0, false);
+                RenderTexture.active = null;
+                RenderTexture.ReleaseTemporary(renderTexture);
+                texture.Apply();
+
+                return texture;
+            }
+            else
+            {
+                var texture = new Texture2D(Bookmark.ScreenshotWidth, Bookmark.ScreenshotHeight, TextureFormat.RGB24,
+                false);
+                return texture;
+            }
+#endif
+
         }
     }
 }

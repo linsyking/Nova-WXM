@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+using UnityEngine;
+using WeChatWASM;
 
 namespace Nova
 {
@@ -22,9 +23,22 @@ namespace Nova
                 return;
             }
 
+#if !UNITY_EDITOR
+            WX.InitSDK((int code) =>
+            {
+                Debug.Log($"WX Init Success with exit code {code}");
+                var fs = WX.env.USER_DATA_PATH;
+                Debug.Log($"Current WXPATH: {fs}");
+
+                var controller = Instantiate(novaGameControllerPrefab);
+                controller.tag = "NovaGameController";
+                DontDestroyOnLoad(controller);
+            });
+#else
             var controller = Instantiate(novaGameControllerPrefab);
             controller.tag = "NovaGameController";
             DontDestroyOnLoad(controller);
+#endif
         }
     }
 }

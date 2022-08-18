@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac395c1b78e415688aa2aa3f0b8122a, type: 3}
+  m_Name: s3_group
+  m_EditorClassIdentifier: 
+  entries:
+  - id: s3_dc
+    displayNames:
+    - locale: 40
+      value: s3_dc
+    resourcePath: Backgrounds/wuhui/s3_dc
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}
+  - id: s3_xianchang
+    displayNames:
+    - locale: 40
+      value: s3_xianchang
+    resourcePath: Backgrounds/wuhui/s3_xianchang
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}
+  - id: s3_jiaoxue
+    displayNames:
+    - locale: 40
+      value: s3_jiaoxue
+    resourcePath: Backgrounds/wuhui/s3_jiaoxue
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}
+  - id: s3_wuban
+    displayNames:
+    - locale: 40
+      value: s3_wuban
+    resourcePath: Backgrounds/wuhui/s3_wuban
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}

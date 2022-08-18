@@ -1,0 +1,510 @@
+@<|
+label 'wuhui_jiemu'
+|>
+<|
+anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/taolun", "fade", 1)
+box_hide_show(4)
+|>
+欢迎加入节目组
+
+节目导::Hi，小舞，你来节目组帮忙了呀！
+
+节目导::嘿嘿，悄悄对你说，节目组全称就是：专找帅哥美女aka节目组！
+
+小舞::哇哦，是我喜欢的！看来这下没来错地方！
+
+我心中一阵狂喜。
+
+小舞::可是节目组到底是要干什么呢？
+
+节目导::就是字面意思啊，哈哈，找，节，目。不过舞会和一般的文艺晚会不一样，除了需要现场的各种形式的节目之外，我们最大头的节目当然是集体的舞蹈啦，所以是wkld和乐趣并存。
+
+节目导::言归正传，小舞，你想先做什么？
+@<| jump_to 'l_precheck' |>
+
+@<| label 'l_precheck' |>
+@<|
+branch {
+    { dest = 'wuhui_end', mode = 'jump', cond = 'v_jiemu_finish_wudao and v_jiemu_finish_dresscode and v_jiemu_finish_wuban and v_jiemu_finish_xianchang'},
+    { dest = 'l_jiemu_start', mode = 'jump', cond = 'true'}
+}
+|>
+
+@<| label 'l_jiemu_start' |>
+接下来，你选择
+@<| branch {
+    { dest = 'l_wudao', text = '舞蹈教学', mode = 'show', cond = 'not v_jiemu_finish_wudao'},
+    { dest = 'l_dresscode', text = 'Dresscode拍摄', mode = 'show', cond = 'not v_jiemu_finish_dresscode'},
+    { dest = 'l_wuban', text = '舞伴匹配', mode = 'show', cond = 'not v_jiemu_finish_wuban'},
+    { dest = 'l_xianchang', text = '现场节目', mode = 'show', cond = 'not v_jiemu_finish_xianchang'}
+}
+|>
+
+@<| label 'l_wudao' |>
+<|
+anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s3_jiaoxue", "fade", 1)
+box_hide_show(4)
+|>
+舞会舞会，那现场最重要的环节当然是——跳舞啦！
+
+不过小舞我虽然平时喜欢对着镜子跳一跳，但是要真是说起在舞会上和大家一起跳，却是一脸迷茫了......
+
+小舞::节目导，舞蹈教学位是干什么的啊，我我我没学过舞会的舞蹈，能教大家吗？
+
+节目导::你这么机灵，学会几支舞不是小菜一碟嘛？虽然它远不止于你刚刚所认为的，直接手把手教会身边的同学，但它也很有意思呢！
+
+小舞::别卖关子嘛，有啥有啥？
+
+节目导::首先啦，我们肯定是要选择舞种，而且要考虑到大多数参与者都没有舞蹈基础，参加舞蹈教学的时间有限，这个选舞就要综合考虑到难度、趣味性和观赏性。当然，还要考虑舞会场地规模的限制，还有组织舞蹈秩序的难度......
+
+节目导::只有选出了几支符合上面所有要求的舞蹈，我们才能开始考虑实际的教学问题哦！
+
+所以呀，这次节目组会议后，我们就开始了一波大海捞针之视频网站的刷，来寻找符合期望的舞蹈。
+
+乡村舞、华尔兹、维尔纳华尔兹...
+
+经过一番纠结，我们选定了这三支舞作为面向所有参与者的舞蹈。
+
+接下来就是......怎么教会大家啦！
+
+节目导::我们的舞蹈教学要通过多种渠道开展，前期的线上教学视频和线下教学都是必要的！但是我们也知道不少同学不一定会及时参加这些线上线下的培训，所以现场手把手指导占了我们教学工作的大部分。
+
+节目导::小舞你觉得，如何高效地完成这大规模的舞蹈教学呢？
+
+小舞::总不能只有我们节目组几个人吧，恐怕很难hold住全场......
+所以，我们是不是要先“以先学带动后学”呀，就是先征集一些有舞蹈基础的大佬一起学学好了，再把教学任务平均分配下去。
+
+节目导::你这个思路是对的，确实应该“以先学带动后学”！所以专找帅哥美女aka节目组的星探功能就要上线咯...
+我们要着手联系身边这些优秀的同学，邀请他们加入我们舞蹈教学的工作，组成美美领舞团。
+<|
+v_try = 1
+|>
+
+@<| jump_to('l_sortminigame1') |>
+
+@<|
+label 'l_sortminigame1'
+|>
+<|
+first = "我们已经联系好领舞团的伙伴们啦，为了学舞教舞有序高效，接下来要做的事情得列个List，排列一个合理的任务先后顺序吧~"
+second = "顺序不太对哦，要不再想想看？"
+if (v_try == 1)
+then
+    result = first
+else
+    result = second
+end
+|>
+节目导::{{result}}
+
+<|
+v_try = v_try + 1
+v_sortminigame_text = "排列一个合理的任务先后顺序吧！"
+v_sortminigame_options = "领舞团确定排练时间地点;录制线上舞蹈教学视频;公布选取舞蹈和相关资料;现场舞蹈教学;组织线下舞培;预约领舞团排练场地;领舞团确定线下舞培时间地点;审核前期排练成果;舞会场地踩点预排练;预约线下舞培场地;发布线下舞培推送"
+uiminigame('SortMinigame')
+|>
+嗯嗯！这个顺序如何？
+@<|
+branch {
+    { dest = 'l_wudao2', mode = 'jump', cond = 'v_try >=3 or v_sortminigame_result == "3;1;6;8;2;7;10;11;5;9;4"'},
+    { dest = 'l_sortminigame1', mode = 'jump'},
+}
+|>
+
+@<|
+label 'l_wudao2'
+|>
+一系列舞蹈教学工作有条不紊地完成咯！我长舒一口气......
+
+这个岗位上，不但学会了几支好看的舞蹈，还结识了领舞团的帅哥美女们，这就是节目组吗，爱了爱了！
+<|
+v_jiemu_finish_wudao = true
+|>
+
+@<|
+jump_to 'l_precheck'
+|>
+
+@<| label 'l_dresscode' |>
+<|
+anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s3_dc", "fade", 1)
+box_hide_show(4)
+|>
+Dresscode是什么啊......我选这个可能只是因为这是唯一一个没看懂题目的任务哈哈哈！当然参考了往年的dresscode推送，我大概明白这是舞会着装指导的意思。
+
+节目导::哇小舞，你果然是DNA里的，专找帅哥美女，啊不节目组人！这一下子就选到dresscode了！
+
+小舞::所以dresscode是要干啥嘞？
+
+节目导::说正经话啦，就是着装指导，引导大家提前准备好符合舞会要求的服装，比如帅哥的西装和美女的裙子。我们要通过一篇专门的dresscode推送，展示实例舞会服装的照片。
+
+小舞::所以我是要......找帅哥美女给他们拍照咯，这事我喜欢！
+
+当然，在dresscode拍摄这个关卡中，任务还是不少的呢！
+
+<|
+v_sortminigame_text = [[Dresscode to do list
+排列一个合理的任务先后顺序吧~]]
+v_sortminigame_options = "联系同意上镜的模特;沟通服装要求;审核模特选取的服装;联系传媒部摄影，拍摄道具租借;拍摄地点选取踩点;同模特、摄影、场务确定拍摄时间地点;美美开拍~;后期修图，成片整理;联系宣传组制作dresscode推送"
+uiminigame('SortMinigame')
+|>
+Dresscode当天天气有点凉，我在一旁拿着道具跟拍都冻得瑟瑟发抖，真是太辛苦模特们啦！最后成品不负我们的努力，快来欣赏一波吧！
+
+<|
+hide(b1bg)
+show(f1bg, "wuhui/item/image042", {0,-7}, {1,1,1,0})
+anim:move(f1bg, {0,0})
+anim:tint(f1bg, {1,1,1,1})
+stop_ff()
+set_box('hide')
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+set_box()
+|>
+Dresscode就告一段落了！
+<|
+v_jiemu_finish_dresscode = true
+|>
+
+@<|
+jump_to 'l_precheck'
+|>
+
+@<| label 'l_wuban' |>
+<|
+anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s3_wuban", "fade", 1)
+box_hide_show(4)
+|>
+小舞::舞伴匹配...？我是要帮忙给所有报名来舞会的小伙伴配舞伴吗？这听上去很社牛！
+
+节目导::在这个岗位干活，社牛是必须的，同时设计匹配机制也是一个很烧脑的环节！小舞，这对你是不小的挑战呢！
+
+小舞::我还从来没想到过，原来舞伴匹配是我们要帮助报名者做的......我还以为大家都自带舞伴了呢......那这个机制要怎么设计呀？
+
+节目导::怎么入手呢，我们分类来看好了：自带舞伴的报名者是一部分，另一部分的报名者中，能通过社牛自己找到舞伴的，我们也不用担心。还有不少希望来舞会玩耍，但又苦于邀请不到舞伴的同学，就需要我们设计一种渠道，来帮助他们解决难题。对此，你有什么思路吗？
+
+小舞::嗯......有没有可能做一个配对的平台把没有舞伴的报名者聚在一起，让大家在这里互相邀请呢？如果想体验盲盒，甚至能开个随机配对模式嘻嘻...
+
+节目导::真是小机灵鬼！小舞，这个重任就交给你啦！
+
+啊慢着......搭建平台，这，这事是我有能力做得出来的吗？
+  
+又是一天的通宵，又是一天清晨的微光，我顶着黑眼圈合上了电脑。
+
+混混沌沌的脑子里依稀记得组会上节目导信任的眼神，还有会后蹦出来的那个灵感：做一个舞伴匹配的微信小程序呗！
+让大家在小程序这个平台上，轻轻点击便能邀请到舞伴，这个配对难题不就迎刃而解了？
+
+然而说起来容易做起来难，为了钻研小程序制作，我可是焚膏继晷废寝忘食，苦苦修仙三个月，终于迎来了发布的日子......
+
+<|
+show(f1bg, "wuhui/item/image044", {0,-7}, {1,1,1,0})
+anim:move(f1bg, {0,0})
+anim:tint(f1bg, {1,1,1,1})
+stop_ff()
+set_box('hide')
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image045", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+set_box()
+|>
+舞伴匹配小程序这个大坎算是迈过去了，随之而来的问题是，匹配好的舞伴现场如何相互确认？创意满满的节目导又给我提了一个方案：扑克牌配对。
+
+<|
+show(f1bg, "wuhui/item/image046", {0,-7}, {1,1,1,0})
+anim:move(f1bg, {0,0})
+anim:tint(f1bg, {1,1,1,1})
+set_box('full', 'dark')
+__Nova.dialogueBoxController.canRefreshTextProxy = false -- 禁止刷新文字排版
+                                                         -- 在自定义的对话框动画之前要写这一句，否则对话框的位置/大小每改变一下，都要刷新文字排版，就会发生闪烁
+__Nova.gameViewInput.canClickForward = false -- 禁止点击鼠标跳过动画
+
+box_anchor({0.05, 0.95, -1, 0}) -- 把对话框移到屏幕的下边缘之外
+                                -- anchor的四个数为对话框的左右下上四条边缘在屏幕中的相对位置，屏幕从左到右是0到1，从下到上是0到1
+                                -- 所以对话框的下边缘anchor为-1，上边缘为0，就是对话框在屏幕的下边缘之外
+anim:box_anchor({0.05, 0.95, 0, 1}, 3, {1, 0}) -- 把对话框移到屏幕内
+                                              -- 这段动画结束后，对话框的下边缘anchor为0，上边缘为1
+                                              -- 动画时间为3秒
+                                              -- easing为{1, 0}，表示开始时不用加速（速度为1倍），结束时减速到零
+
+box_tint({0, 0}) -- 把对话框背景设为黑色（RGB乘上0），完全透明（alpha乘上0）
+anim:box_tint({0, 0.5}, 0.5 -- 对话框淡入，背景变为半透明（alpha乘上0.5），动画时间为0.5秒
+    ):_and():wait(10        -- 等待10秒，就是文字滚动动画结束
+    ):box_tint({0, 1}, 0.5) -- 对话框淡出，背景变为完全透明（alpha乘上0），动画时间为0.5秒
+
+text_delay(1)    -- 1秒后文字开始出现
+text_duration(8) -- 文字的打字机动画为8秒，一般比文字滚动动画要快
+text_scroll(0)   -- 初始时文字在对话框中的位置为0，这个位置可以在UI/DialogueView/DialoguePanel/DialogueTextScrollView/Viewport/DialogueText的Pos Y看出
+anim:wait(2                           -- 文字滚动动画之前等待2秒，就是对话框移到屏幕内的动画差不多结束的时候
+    ):text_scroll(0, 150, 8, {0, 1}  -- 文字滚动动画，初始位置为0，最终位置为150（使得文字在对话框的上边缘之外），时间为8秒，开始时从零加速，结束时不用减速
+    ):action(function()
+        __Nova.dialogueBoxController.canRefreshTextProxy = true -- 允许刷新文字排版
+        __Nova.gameViewInput.canClickForward = true -- 允许点击鼠标跳过动画
+    end)
+|>
+扑克牌配对规则
+<b></b>
+<size=150%>小程序中用户分类</size>
+<b></b>
+（不包括报名时自带舞伴的用户）
+1. 通过小程序已邀请舞伴的
+2. 通过小程序未邀请舞伴但在报名问卷中同意随机配对的
+3. 通过小程序未邀请舞伴且在报名问卷中不同意随机配对的（在此类别下包含文艺部成员, 其他工作人员和参加表演但不参加舞会的同学）
+<b></b>
+<size=150%>入场时扑克牌分发规则</size>
+<b></b>
+1. 通过小舞使得两人互加微信，可通过彼此的暗号在舞会现场相见，同时小程序内邀请函页面的编号对应扑克牌类型花色和点数，入场时按照该花色和点数分发扑克牌，可帮助两位互相确认
+2. 只会在舞会当天拿到随机一张扑克牌作为纪念品
+
+<|
+set_box()
+|>
+对于这三类同学，按照什么规则发放扑克牌比较合理呢？
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+|>
+小舞::头疼...该怎么做呢？
+
+对于1、2类用户，我觉得第一种解决方案比较好。
+
+对于第三种用户，第二种方案更合适一些。
+
+小舞::就这样吧！
+
+舞伴匹配这个浩大的工程终于完成咯！我揉揉黑眼圈，心想自己的爆肝成果能帮助到不少小伙伴找到与他们在舞会上邂逅的舞伴，心里美滋滋的！
+<|
+v_jiemu_finish_wuban = true
+|>
+
+@<|
+jump_to 'l_precheck'
+|>
+
+@<| label 'l_xianchang' |>
+<|
+anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s3_xianchang", "fade", 1)
+box_hide_show(4)
+|>
+我兴冲冲的应承下负责现场节目，因为这才是“节目组”最原汁原味的工作嘛！
+
+节目导::这部分的节目组工作，就和其他大型文艺晚会有点类似了！虽然舞会是以集体舞蹈为主，但精彩的节目也是带动气氛，锦上添花的重要因素！
+
+小舞::好耶，我以前文艺晚会看得可多了，这经验很充足，交给我干没问题的！
+
+节目导::看和策划可不是一回事，这次体验一波舞台背后的策划角色，你一定会很有收获的！我们看看舞会上节目的策划有哪些步骤吧。
+
+<|
+v_sortminigame_text = "负责现场节目的工作清单，\n如何按顺序完成比较合理呢？"
+v_sortminigame_options = "节目征集和报名通知;节目审核;节目灯光道具要求沟通;活动全程时间线设计;主持人征集和审核;主持稿撰写;前期突发情况处理;线下联合排练;现场突发情况处理;后期节目影音资料整理"
+uiminigame('SortMinigame')
+|>
+节目导::前期的准备固然重要，但可别忘记“现场节目”这个位置可是高度现场导向型的！
+不但要掌控好几百人舞蹈教学的秩序和节目流程时间线，还要临场处理一些突发情况，也就是说控场能力绝对要up up！
+
+小舞::听上去很困难的亚子......就例如那个，舞蹈教学秩序怎么控制啊，我难以想象如何让那么多人都乖乖听我话学舞，然后，大家有没学会的我该怎么办？
+
+节目导::舞蹈教学的环节嘛，就一定要把动作分解成一个个节拍，每一个节拍的动作用“人话”表述出来 ！让大家最快最轻松的听懂然后能立马跟着现场教学的同学一起做！
+
+小舞::小问题，那主持稿写详细一点就ok啦~
+
+节目导::主持稿是要提前把每一个动作描述都讲清楚，但是临场还是非常考验人哒，要根据实际教学的进度来调节节奏，而且最最最重要的是：防，尴，尬！
+
+节目导::开始没学会的混乱是很正常的，如何在闹哄哄的大厅里面让大家继续听自己的instruction就很需要防尴尬啦！
+
+啊......原来这么难的咩，看来我要好好克服一下自己的社恐了......
+
+节目导::对啦，而且现场的各方面时间线的把控也是很重要的！小舞你要先把整个时间线捋好！
+
+小舞::是......这就去做！
+
+<|
+v_sortminigame_text = "舞会时间线归总（拖动排序）"
+v_sortminigame_options = "中场二节目;尾声抽奖环节;中场三节目;中场一节目;第二支舞蹈（华尔兹）;第一支舞蹈（维尔纳华尔兹）;开场舞;第一支舞蹈（乡村舞）"
+uiminigame('SortMinigame')
+|>
+节目导::嗯不错，这个时间线列的大体完善了，但是，还是有要补充的点.....
+比如茶歇供应，我们要考虑到大家会饥不择食地围去供应台边，那场面必然是会混乱的！所以我们能做的是和后勤组协调，控制好每一次开放供应的时间点。
+@<| jump_to('l_jiemu3') |>
+
+@<| label 'l_jiemu3' |>
+啊...那什么时候开放茶歇比较合适呢？
+@<|
+branch{
+    {dest = "l_wrong_3", text = "舞蹈期间"},
+    {dest = "l_jiemu4", text = "舞蹈和中场节目之间"},
+    {dest = "l_wrong_3", text = "中场节目期间"}
+}
+|>
+
+@<| label 'l_wrong_3' |>
+节目导::不太合适捏，再想想？
+@<|
+jump_to 'l_jiemu3'
+|>
+
+@<| label 'l_jiemu4' |>
+节目导::之所以要选择在中场节目和舞蹈之间，是因为这样能避免大家蜂拥去吃茶歇而不看节目，或者舞蹈秩序被打乱的情况。
+
+节目导::这种潜在的混乱问题是可以通过前期规划避免的，到现场肯定还会有一些无法预料的情况，比如节目设备临时故障等等......只有尽可能为所有奇怪事情做好预案，才能尽可能提高现场呈现的效果~
+
+小舞::嗯嗯，看来现场节目的工作也不轻松呢，我更加要加油了！
+
+看看我们准备的精彩节目吧！
+
+<|
+show(f1bg, "wuhui/item/image047", {0,-7}, {1,1,1,0})
+anim:move(f1bg, {0,0})
+anim:tint(f1bg, {1,1,1,1})
+stop_ff()
+set_box('hide')
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image048", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image049", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image050", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image051", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image052", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image053", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image054", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image055", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image056", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image057", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image058", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image059", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+set_box()
+|>
+在这个岗位上，既结识了参加表演的许多新伙伴，又提前欣赏到大家精彩的演出预告，真是收获满满！
+<|
+v_jiemu_finish_xianchang = true
+|>
+
+@<|
+jump_to 'l_precheck'
+|>

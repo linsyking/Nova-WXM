@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -119,6 +119,7 @@ namespace Nova
             if (!string.IsNullOrEmpty(currentAudioName))
             {
                 var audioPath = System.IO.Path.Combine(audioFolder, currentAudioName);
+                //Debug.Log($"Audio path {audioPath}, {audioSource.volume}");
                 clip = AssetLoader.LoadOrNull<AudioClip>(audioPath + "_loop");
                 if (clip != null)
                 {

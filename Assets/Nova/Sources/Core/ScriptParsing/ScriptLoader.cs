@@ -1,4 +1,4 @@
-﻿using LuaInterface;
+using LuaInterface;
 using Nova.Script;
 using System;
 using System.Collections.Generic;
@@ -108,7 +108,7 @@ namespace Nova
 
 #if UNITY_EDITOR
                     var scriptPath = AssetDatabase.GetAssetPath(script);
-                    Debug.Log($"Nova: Parse script {scriptPath}");
+                    //Debug.Log($"Nova: Parse script {scriptPath}");
 #endif
 
                     try

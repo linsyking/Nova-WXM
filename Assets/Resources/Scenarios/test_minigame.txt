@@ -1,76 +1,52 @@
 @<|
 label 'test_minigame'
--- is_unlocked_start()
+is_unlocked_start()
 |>
 <|
-show(bg, 'rain')
+show(bg, 'room')
 stop(bgm)
 set_box()
 |>
 测试小游戏
 
 <|
-show(__Nova.prefabLoader, 'ExampleCube')
+v_checkminigame_text = "请勾选一些选项。"
+v_checkminigame_options = "测试dasdasdasdasdasdasda\nsdas\ndasdasdasdasdasdasdasdas;第二选项;成功选项;WOW"
+uiminigame('CheckMinigame')
 |>
-显示普通的prefab
+选择了{{v_checkminigame_result}}
 
+@<|
+label 'l_sortminigame'
+|>
 <|
-hide(__Nova.prefabLoader)
+v_sortminigame_text = "请按顺序排列。（正确答案：21345）"
+v_sortminigame_options = "kulu测试dasd\nasdasdasdasdasda测试dasdasdasdasdasdasda测试dasdasdasdasdasdasda;king;pang;zhang;wen"
+uiminigame('SortMinigame')
 |>
-隐藏prefab
+小游戏结束
+@<| jump_to('end_minigame') |>
 
-先来一个选项
+@<|
+label 'end_minigame'
+|>
+刚才输入的是{{v_sortminigame_result}}
+
 @<|
 branch {
-    { dest = 'l_a', text = '敲妹妹的门'},
-    { dest = 'l_b', text = '去新年参拜'},
-    { dest = 'l_c', text = '带走伊莉雅'},
+    { dest = 'l_end', mode = 'jump', cond = 'v_sortminigame_result == "2;1;3;4;5"'},
+    { dest = 'l_sortminigame', mode = 'jump'},
 }
 |>
 
-@<| label 'l_a' |>
-<|
-v_choice = '敲妹妹的门'
+@<|
+label 'l_end'
 |>
-你选了：敲妹妹的门
-@<| jump_to 'l_end_choice' |>
-
-@<| label 'l_b' |>
-<|
-v_choice = '去新年参拜'
-|>
-你选了：去新年参拜
-@<| jump_to 'l_end_choice' |>
-
-@<| label 'l_c' |>
-<|
-v_choice = '带走伊莉雅'
-|>
-你选了：带走伊莉雅
-@<| jump_to 'l_end_choice' |>
-
-@<| label 'l_end_choice' |>
-<|
-v_test_bool = true
-v_test_int = 123
-v_test_float = 4.56
-v_test_double = 7.89
-|>
-测试各种类型的变量
-
-接下来显示小游戏
+回答正确，获得10金币！下一关！
 
 <|
-minigame(__Nova.uiPrefabLoader, 'ExampleMinigame')
+v_inputminigame_text = "请打出：你好"
+uiminigame('InputMinigame')
 |>
-小游戏结束
-
-刚才输入的是{{v_minigame_text}}
-
-<|
-print(v_test_bool, v_test_int, v_test_float, v_test_double)
-|>
-测试各种类型的变量
-
-测试结束
+小游戏结束，{{v_inputminigame_result}}
 @<| is_end() |>

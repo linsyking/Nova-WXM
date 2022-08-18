@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -170,6 +171,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -280,6 +282,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -356,6 +359,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -384,6 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -470,7 +475,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myPanel: {fileID: 3535619005968859448}
   musicPlayer: {fileID: 3535619006079575071}
-  musicUnlockStatusKey: music_unlock_status
   musicList: {fileID: 0}
   musicListScrollContent: {fileID: 7321285593639802457}
   musicEntryPrefab: {fileID: 114443515121404542, guid: 76560a599646540cd9cc8cbb1de59982,
@@ -550,6 +554,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -651,7 +656,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -180}
+  m_AnchoredPosition: {x: 0, y: -380}
   m_SizeDelta: {x: 0, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3535619005179511072
@@ -668,6 +673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -736,7 +742,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3535619005239546534
 RectTransform:
   m_ObjectHideFlags: 0
@@ -779,6 +785,7 @@ MonoBehaviour:
   m_Material: {fileID: 2100000, guid: 67ed0c8acadd8407c97db3a0541d5a36, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -869,6 +876,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -921,7 +929,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 51}
+  m_AnchoredPosition: {x: 0, y: 312}
   m_SizeDelta: {x: 0, y: 101.80005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3535619005340497715
@@ -949,6 +957,7 @@ MonoBehaviour:
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &3535619005523677584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,6 +1066,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1161,6 +1171,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1245,8 +1256,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 120}
+  m_AnchoredPosition: {x: -2, y: -80}
+  m_SizeDelta: {x: -104, y: 120}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &3535619006007013830
 CanvasRenderer:
@@ -1271,6 +1282,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1445,6 +1457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1570,6 +1583,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1648,6 +1662,7 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!114 &87927267170237634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1722,6 +1737,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1806,7 +1822,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 50}
+  m_AnchoredPosition: {x: 317, y: 74}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6382194452327675861
@@ -1862,7 +1878,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3005098046038524281
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1906,6 +1922,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2014,6 +2031,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2090,6 +2108,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2118,6 +2137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -2212,6 +2232,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2262,24 +2283,6 @@ RectTransform:
   m_AnchoredPosition: {x: 50, y: -40}
   m_SizeDelta: {x: -1290, y: -80}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &5969776351862645838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8733886360927594597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21e7061b30974cc687443a7dcd4b9c6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iconImage: {fileID: 6798650007630029884}
-  icons:
-  - {fileID: 21300000, guid: ee5d41bd6e260934eb99caeea48ebe91, type: 3}
-  - {fileID: 21300000, guid: 4c1412862d54c254bbfcb667ee1000c7, type: 3}
-  - {fileID: 21300000, guid: c0064c5774413db4ba5420b92f1eba5d, type: 3}
-  configKey: nova.music_gallery.play_mode
 --- !u!1 &8941604857863547288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2340,6 +2343,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3246,15 +3250,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ca3cac655344490f840431f551658bc, type: 3}
---- !u!1 &1124277312707465584 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2376944768870159332, guid: 9ca3cac655344490f840431f551658bc,
-    type: 3}
-  m_PrefabInstance: {fileID: 3415600909274514068}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1124277312707465585 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2376944768870159333, guid: 9ca3cac655344490f840431f551658bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 3415600909274514068}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1124277312707465584 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2376944768870159332, guid: 9ca3cac655344490f840431f551658bc,
     type: 3}
   m_PrefabInstance: {fileID: 3415600909274514068}
   m_PrefabAsset: {fileID: 0}
@@ -3432,6 +3436,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5969776351862645838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8733886360927594597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e7061b30974cc687443a7dcd4b9c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconImage: {fileID: 6798650007630029884}
+  icons:
+  - {fileID: 21300000, guid: ee5d41bd6e260934eb99caeea48ebe91, type: 3}
+  - {fileID: 21300000, guid: 4c1412862d54c254bbfcb667ee1000c7, type: 3}
+  - {fileID: 21300000, guid: c0064c5774413db4ba5420b92f1eba5d, type: 3}
+  configKey: nova.music_gallery.play_mode
 --- !u!1001 &6951756222304885578
 PrefabInstance:
   m_ObjectHideFlags: 0

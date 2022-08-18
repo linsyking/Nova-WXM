@@ -7,6 +7,8 @@ from glob import glob
 patterns = [
     '../../Assets/Nova/Fonts/CharsetChinese.txt',
     '../../Assets/Resources/Scenarios/*.txt',
+    '../../Assets/Resources/Scenarios/*/*.txt',
+    '../../Assets/Resources/Scenarios/*/*/*.txt',
     '../../Assets/Resources/LocalizedResources/*/Scenarios/*.txt',
     '../../Assets/Resources/LocalizedStrings/*.json',
 ]

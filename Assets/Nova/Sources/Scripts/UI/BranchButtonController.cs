@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -38,6 +38,8 @@ namespace Nova
 
             button.onClick.AddListener(onClick);
             button.interactable = interactable;
+
+            //button.GetComponent<RectTransform>().sizeDelta = new Vector2(800, 90);
         }
 
         private void UpdateText()

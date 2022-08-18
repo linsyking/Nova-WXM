@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac395c1b78e415688aa2aa3f0b8122a, type: 3}
+  m_Name: yanchu_group
+  m_EditorClassIdentifier: 
+  entries:
+  - id: image047
+    displayNames:
+    - locale: 40
+      value: image047
+    resourcePath: Backgrounds/wuhui/item/image047
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}
+  - id: image054
+    displayNames:
+    - locale: 40
+      value: image054
+    resourcePath: Backgrounds/wuhui/item/image054
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}
+  - id: image051
+    displayNames:
+    - locale: 40
+      value: image051
+    resourcePath: Backgrounds/wuhui/item/image051
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}
+  - id: image057
+    displayNames:
+    - locale: 40
+      value: image057
+    resourcePath: Backgrounds/wuhui/item/image057
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}
+  - id: image059
+    displayNames:
+    - locale: 40
+      value: image059
+    resourcePath: Backgrounds/wuhui/item/image059
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}
+  - id: image055
+    displayNames:
+    - locale: 40
+      value: image055
+    resourcePath: Backgrounds/wuhui/item/image055
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}
+  - id: image050
+    displayNames:
+    - locale: 40
+      value: image050
+    resourcePath: Backgrounds/wuhui/item/image050
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}
+  - id: image052
+    displayNames:
+    - locale: 40
+      value: image052
+    resourcePath: Backgrounds/wuhui/item/image052
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}
+  - id: image048
+    displayNames:
+    - locale: 40
+      value: image048
+    resourcePath: Backgrounds/wuhui/item/image048
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}
+  - id: image049
+    displayNames:
+    - locale: 40
+      value: image049
+    resourcePath: Backgrounds/wuhui/item/image049
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}
+  - id: image058
+    displayNames:
+    - locale: 40
+      value: image058
+    resourcePath: Backgrounds/wuhui/item/image058
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}
+  - id: image056
+    displayNames:
+    - locale: 40
+      value: image056
+    resourcePath: Backgrounds/wuhui/item/image056
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}
+  - id: image053
+    displayNames:
+    - locale: 40
+      value: image053
+    resourcePath: Backgrounds/wuhui/item/image053
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}

@@ -1,0 +1,541 @@
+@<|
+label 'wuhui_xuanchuan'
+|>
+<|
+anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/taolun", "fade", 1)
+box_hide_show(4)
+|>
+欢迎加入宣传组
+
+宣传导::Hi，小舞，你来宣传组帮忙了呀！哈哈哈哈，“肝到秃”宣组欢迎你！
+
+刚刚进入宣传组就见到了可爱的宣导，和在微信聊天框研究色子的宣组小伙伴们，色子在宣组有什么神秘的作用吗？
+
+小舞::Hello，我...我需要...需要做些什么嘛？
+
+只见宣导邪魅一笑，一声号令之下，全组伙伴齐齐点下微信的色子，随后，在一片欢呼雀跃下，大家的目光齐齐投向了我。
+
+小舞::qwq我还什么都不知道呢怎么能这么对待我呢，所以宣组到底要干什么啊？
+
+宣传导::宣组要干的活就是制作宣传品嘛。舞会的宣传周期长，活动受众广，又作为文艺部招牌活动，需要高质量推出多种宣品，wkld一向是不小的！所以我们要合理分工。
+
+宣传导::用色子比大小来分锅可是文艺部宣组的传统，这回大家都是六点，看来这回是你点数最小了，嘿嘿嘿...所以，小舞你先选锅吧！
+@<| jump_to 'l_precheck' |>
+
+@<| label 'l_precheck' |>
+@<|
+branch {
+    { dest = 'wuhui_end', mode = 'jump', cond = 'v_xuanchuan_finish_tuisong and v_xuanchuan_finish_logo and v_xuanchuan_finish_mv and v_xuanchuan_finish_xuanchuanping'},
+    { dest = 'l_xuanchuan_start', mode = 'jump', cond = 'true'}
+}
+|>
+
+@<| label 'l_xuanchuan_start' |>
+接下来你选择？
+@<|
+branch {
+    { dest = 'l_tuisong', text = '六次推送制作', mode = 'show', cond = 'not v_xuanchuan_finish_tuisong'},
+    { dest = 'l_logo', text = 'Logo和海报设计', mode = 'show', cond = 'not v_xuanchuan_finish_logo'},
+    { dest = 'l_mv', text = 'MV拍摄', mode = 'show', cond = 'not v_xuanchuan_finish_mv'},
+    { dest = 'l_xuanchuanping', text = '实体宣传品设计', mode = 'show', cond = 'not v_xuanchuan_finish_xuanchuanping'}
+}
+|>
+
+@<| label 'l_tuisong' |>
+<|
+anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s2_tuisong", "fade", 1)
+box_hide_show(4)
+|>
+哇，怎么要做六篇推送这么多呀！！我这该不会成肝帝了？组里伙伴纷纷向我投来敬佩的目光，宣导也欣慰而赞赏地点点头，喜气洋洋的党团活动室更是以乐景衬哀情。
+
+小舞::awa这么多推送任务，我要从何下手呀？
+
+宣传导::这六篇当然不是让你一个人一次做完，而是按照一定的顺序和ddl来赶！
+众所周知，推送是一个活动对外展示的直接窗口，而每篇推送都要紧跟每个工作组工作进度的关键节点，来推进我们整个活动！
+
+小舞::啊啊啊，我还是好晕啊，所以我具体要怎么做呀？啥时候要交稿呀？
+
+宣传导::别急小舞，等策划组给出整体时间线，我们再细细研究。
+
+宣传导::嗨，刚刚导演组开完会啦，小舞你快来看看时间线里面对应的推送发布节点！
+
+点击查看各推送内容要求
+@<|
+label 'l_sortminigame1'
+|>
+<|
+v_sortminigame_text = "拖动选项来配队推送和对应\n内容吧！\n（按顺序对应左边任务）\n11.28-启动&第一轮报名推送\n1.26-着装指导（dresscode）推送\n2.8-舞蹈培训指南推送\n2.9-第二轮报名推送\n2.25-倒计时推送\n8.28-回顾推送"
+v_sortminigame_options = "奠定宣传风格！开放报名渠道！是否成功的通知形式！缴费渠道！;整理节目组的dresscode美图，明确着装要求！开放舞伴匹配小程序！;介绍舞会选用舞种！整理节目组的舞蹈教学视频！预告线下舞培！;开放二轮报名渠道！重申成功通知和缴费渠道！开放主持人报名！;舞会MV发布！整理后勤组的场地、茶歇信息！入场流程和注意事项！;舞会回顾视频发布！工作人员致谢！美美下班！"
+uiminigame('SortMinigame')
+|>
+嗯。。。
+@<|
+branch {
+    { dest = 'l_tuisong2', mode = 'jump', cond = 'v_sortminigame_result == "1;2;3;4;5;6"'},
+    { dest = 'l_wrong', mode = 'jump'},
+}
+|>
+
+@<|
+label 'l_wrong'
+|>
+好像有点问题呢，再想想看？
+@<| jump_to('l_sortminigame1') |>
+
+@<|
+label 'l_tuisong2'
+|>
+哈，终于理请要干的活啦！还真是任重而道远，小舞小舞你要加油肝呀！
+
+而且换个角度想想，多干点活不是能学到更多东西吗？
+
+宣传导::推送这事，看似只是自己做好设计排版就完工了，但其实要时刻和其他工作组伙伴保持密切联系，还要接受大家“挑剔”的美工评价和时刻可能“回炉重造”，以确保信息准确传达和高质量审美的双赢，还真是不容易呢！小舞你加油~
+
+小舞::不过，我到现在还不会用ps呢，会不会拖大家的后腿呀，我无助地望向宣导...
+
+宣传导::怕啥，大家都是从零开始学的呀！而且学长学姐们都会帮你的呀，有什么不会的都可以随时沟通！对啦，这周末有传媒部的ps培训workshop，可以去看看！学学好了再开工！
+
+啊...？是这样呀，既然能白嫖其他部门的教程，不去就亏了呀，我内心打起了小算盘：那我必是早早去workshop抢前排，那啥资料的当然是藏在收藏夹百刷不厌，顺便还能结识传媒强强的小伙伴，以后遇到困难了还有大腿抱，我真是小机灵鬼！
+@<| branch {
+    { dest = 'l_xuanchuan_hasmv', mode = 'jump', cond = 'v_xuanchuan_finish_mv'},
+    { dest = 'l_xuanchuan_nomv', mode = 'jump', cond = 'not v_xuanchuan_finish_mv' },
+}
+|>
+
+@<| label 'l_xuanchuan_nomv' |>
+宣传导::小舞呀，你在wksp上还可以和传媒的同学混个脸熟，以后除了推送工作，宣传组的其他锅儿也会和他们多多合作的哦！
+
+宣传导::记得倒计时推送的内容要求吗？到时候我们会推出Enigma幻境舞会绝美MV，等到拍摄档期了，你来参与MV工作就知道啦！
+
+小舞::哇，拍MV耶，也是我从来没有做过的新鲜事！我可一定要来看热闹...啊不是…认真打工！
+
+宣传导::嘿，先把推送的工作做好，后面其他活随时欢迎来参加。
+
+于是，我漫长的ps和推送摸索之旅就开始了。
+@<| jump_to('l_xuanchuan_tuisong2') |>
+
+@<| label 'l_xuanchuan_hasmv' |>
+哈，我可记得，拍MV的时候我们就找了传媒的伙伴帮忙拍摄和剪辑！他们强大的专业能力令我叹为观止，最后呈现出的MV成品超级唯美超级震撼~
+
+现在满脑子是视频里精妙的镜头和美美帅帅的男女主啦，当然还有大家的花絮......
+
+（图片嵌入TODO）
+
+宣传导::嘿小舞，你又开小差啦。好了，这次组会就开到这里，下周开会我们就要开始讨论修改你做的推送啦，不许咕咕！
+
+小舞::是...一定不咕咕！
+
+于是，我漫长的ps摸索和推送烧脑之旅就开始了。
+@<| jump_to('l_xuanchuan_tuisong2') |>
+
+@<| label 'l_xuanchuan_tuisong2' |>
+呜呜呜，我要崩溃啦！这推送怎么这么难搞呀！
+
+一篇推送三个ddl，初稿，改进搞，终稿，每个ddl之后部长和导演组还提一堆要改的地方，呜呜呜...呜呜呜...我是不是太菜了哇......
+
+其他人::这个渐变色混得太杂了......色调调亮些呗现在的背景色看起来好阴森qaq......
+
+其他人::啊这个字体能换个吗，还有那个字的颜色大小,这样让人没有读下去的欲望......你要让这些关键信息看上去很清晰美观才能传达到位啊......
+
+小舞::害，我又要remake啦！
+
+我正看着部门微信群自闭着呢，忽然被小窗戳戳了，于是赶紧逃离出去
+
+宣传导::小舞......你没丧气吧？
+
+小舞::没，没有，只是我觉得自己花了那么多心思做出来一稿，一发到群里却被大家各种批评......我觉得我太菜了，我达不到大家的期望，呜呜......
+
+宣传导::啊不是的，我们不是存心想刁难你！千万别这样想！
+
+宣传导::大家都相信你能做的更好才会想方设法给你提优化的建议呀！我们共同的目标，不都是为了让这篇推送美美出炉吗？
+
+小舞::嗯...嗯...我再改，再改！宣导放心，我不摆烂！
+
+虽然看大家的意见，推送初稿是要被迫重修了，可这又何尝不是一个让自己ps技能蜕变的过程呢？
+
+推送最终稿选择（TODO）
+
+宣传导::小舞你快看，你做的推送发出来啦！
+
+我一听宣导提醒就兴奋起来了，赶紧扔下数学作业去刷puq，果然，puq被舞会的推送霸屏了！
+
+真的炒鸡激动的有木有！看到自己精心打磨的一份推送被身边很多很多的好朋友转发，附带上夸夸的文案，还有对舞会的期待......这一刻，觉得自己所有的努力都值得了！
+
+同学A::“小舞太棒啦，推送好好看！这个必须转！”
+
+同学B:: “看到这美美的推送，谁不期待即将到来的舞会呢！”
+
+同学C:: “与你相约Enigma幻境，狠狠期待一波！”
+
+... ...
+
+就这样，我的推送工作顺利完成啦！这一路上学到了很多，不但学会了熟练玩转ps，更站在一个推送工具人的视角，体验到这场大型活动筹备的不易......
+<|
+v_xuanchuan_finish_tuisong = true
+|>
+
+@<|
+jump_to('l_precheck')
+|>
+
+@<| label 'l_logo' |>
+<|
+anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s2_logo", "fade", 1)
+box_hide_show(4)
+|>
+小舞::哈哈，和六篇推送相比，这logo和海报设计不就是小菜一碟嘛，只需要画两个图就好啦，为什么还要专门分开为一组任务呢？
+
+宣传导::小舞，你可低估了这个岗位的重要性！可先别放松太早咯！
+
+宣导邪魅的笑容再次出现，让我顿时对这项任务充满了未知的恐惧 / 瑟瑟发抖.jpg
+
+宣传导::logo是一个活动的标识符，成稿会被反复用到所有的宣传品中，包括各推送、海报、实体......可一定要好好雕琢！
+
+宣传导::还有海报，海报是一个活动最直观、流传最广的宣传品，它给人的视觉冲击力可以直接调动大家参与的热情！当然，一份高质量的海报，更需要将关键信息准确传达，同时这些文字信息的融入不能破坏整体审美和和谐，小舞，这对你是一个难得的锻炼机会！
+
+小舞::这......听上去好难啊，我该怎么入手呢？
+
+宣传导::不急，我们先从logo开始吧！
+
+宣传导::我们一般是先从很多种可能性出发，推出多个初稿，再和大家一起商讨，选出有优化空间的几个，再继续修改，选优，最后择出最符合活动风格又最好看的一个！
+
+在接下来一次宣传组会议上，我们最后决定出了作为logo底稿的图案，我也在大家的建议下一次次改进优化底稿，最后呈现出了所有同学们都看到的logo终稿版本！
+
+<|
+show(f1bg, "wuhui/item/image020", {0,-7}, {1,1,1,0})
+anim:move(f1bg, {0,0})
+anim:tint(f1bg, {1,1,1,1})
+stop_ff()
+set_box('hide')
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image021", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image022", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+set_box()
+|>
+第一part的logo算是顺利完成啦！接下来是海报咯！当然，我依旧陷于选择困难中无法自拔......
+
+<|
+show(f1bg, "wuhui/item/image023", {0,-7}, {1,1,1,0})
+anim:move(f1bg, {0,0})
+anim:tint(f1bg, {1,1,1,1})
+stop_ff()
+set_box('hide')
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image024", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image025", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image026", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image027", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+set_box()
+|>
+最后经过层层改进，绝美海报终稿就顺利出炉啦！
+
+虽然设计的过程既烧脑又肝，但看着自己的作品展示在学院楼、宿舍楼，还有分发到各个寝室，吸引了一大波来报名参加舞会的小伙伴，我的内心充满了成就感！
+
+让我们一起来看看展出成果吧！
+
+<|
+show(f1bg, "wuhui/item/image029", {0,-7}, {1,1,1,0})
+anim:move(f1bg, {0,0})
+anim:tint(f1bg, {1,1,1,1})
+stop_ff()
+set_box('hide')
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image030", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+set_box()
+|>
+Logo和海报设计终于告一段落了。
+<|
+v_xuanchuan_finish_logo = true
+|>
+
+@<|
+jump_to('l_precheck')
+|>
+
+@<| label 'l_mv' |>
+<|
+anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s2_mv", "fade", 1)
+box_hide_show(4)
+|>
+拍MV耶，听上去就超级好玩！我毫不犹豫地选择了这项工作，压抑不住心中对mv这神秘的东西的期待。
+
+宣传导::小舞，我听说你平时看电影看的不少，也总是写影评，mv不就是微电影嘛，看来这活对你来说不在话下。
+
+呃......不不，我的豆瓣号该不会被你发现了吧，这波可是社大死了......
+
+小舞::可，可是看电影是一回事，我以前从来没有试过自己拍微电影呀，要怎么入手呀？
+
+宣传导::你想想看，以下哪些步骤是我们制作这个宣传片要做的？
+
+<|
+v_checkminigame_text = "点击选项勾选你认为拍MV要\n经历的步骤吧。" 
+v_checkminigame_options = "联系主演的帅哥美女;根据活动风格构思剧情;联系传媒部同学摄影;把豆瓣影评设为私密;拍摄地点踩点协调;撰写分镜脚本;拍摄服装审核;现场拍摄和后期剪辑;拍摄道具租借"
+uiminigame('CheckMinigame')
+|>
+原来拍一个几分钟的宣传片要花费那么多心思，呜呜呜我不能知难而退！
+
+宣传导::而且这项浩大的工程，光文艺部是搞不定的，我们要联系传媒部小伙伴们一起合作拍摄！
+
+小舞::那......我该怎么去抱到他们的大腿呀，大家都这么忙，也都有自己部门的工作要做......
+
+宣传导::这个部际联络的工作你不用担心，我们让部长们帮忙就好啦！不过提到这个合作，我倒是有点担心沟通的问题......
+
+小舞::嗯？会有啥问题？
+
+宣传导::就是我们对宣传片的构思和脚本一般都是自己写好，然后拿给传媒的伙伴帮忙拍摄，但这可能会出现双方对接的不顺畅，大家的想法出现分歧，这样就可能会影响拍摄的效果了......
+
+宣传导::但是，如果我们联系好了一起讨论风格，一起构思剧情，一起写台本，不就好了嘛？
+
+宣传导::让部际合作不只是部长之间打个招呼才开始的事，而是从活动筹备就开始贯穿全程，这些沟通的问题不就迎刃而解了吗？
+
+小舞::好，好主意！我这就去找我认识的传媒部伙伴们讨论讨论这个MV的事~
+
+让我们一起看看我和传媒部的百万摄影一起讨论的手稿吧！
+<|
+show(f1bg, "wuhui/item/image031", {0,-7}, {1,1,1,0})
+anim:move(f1bg, {0,0})
+anim:tint(f1bg, {1,1,1,1})
+stop_ff()
+set_box('hide')
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image032", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image033", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+set_box()
+|>
+除了思路和台本和沟通，要想把这奇妙的思路落实为成片，还需要进行各方面的努力呢！
+
+完成这个任务后，各种有趣的花絮细节还萦绕在我脑海中，比如拍摄场地清场时，厚着脸皮去“哀求”东下院活动室自习的同学到别处卷，为了某个角度的灯光效果不惜展示矫健身姿花式举灯，为了营造风洞效果而滑稽扇书本......
+
+当然主演克服寒冬的考验美美上镜，摄影和场务的四处奔忙，这些共同的努力，都助力了绝美mv的横空出世！
+
+最后看到公众号播出我们的作品，puq刷屏转发，还有现场的循环播放......这些瞬间都让我觉得，值了！
+<|
+v_xuanchuan_finish_mv = true
+|>
+
+@<|
+jump_to('l_precheck')
+|>
+
+@<| label 'l_xuanchuanping' |>
+<|
+anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s2_xuanpin", "fade", 1)
+box_hide_show(4)
+|>
+小舞::实体宣传品......这和其他任务中的平面设计有什么区别呀？
+
+宣传导::好问题！实体宣传品的范围就很广啦，你想想，你平时逛街看到的指示牌、霓虹灯、还有手办，这些不都算是，实体的，宣传品吗？
+
+宣传导::这些实体的宣传品，是为了在现场的各种细节上渗透我们这个活动的审美风格，让大家在发现它们的存在时有惊喜的感觉~这样会更有沉浸感和体验感。
+
+小舞::哦，我懂......噢不......还是没明白，那我要做的这个，实体宣传品设计，是要设计些啥呀？
+
+宣传导::不急不急，这我们一一盘点，再开工哈！
+
+<|
+v_checkminigame_text = "实体宣传品的需求List——小舞\n你想让哪些实体宣传品诞生呢？" 
+v_checkminigame_options = "hold起全场打卡点氛围的霓虹灯牌;入场发放的便携又精致的纪念品;大厅外指引入场的易拉宝指示牌;让工作人员玩梗好好干活的标识臂章"
+uiminigame('CheckMinigame')
+|>
+这些任务都不轻松呀！那先从灯牌做起吧。
+
+我光设计了底稿还不够，还得在后勤伙计们对接灯牌定制商家后，根据他们的灯管可选颜色和实体结构限制来修改底稿......
+果然，实体宣传品的出品流程就是和平面设计不一样呢！
+
+<|
+show(f1bg, "wuhui/item/image034", {0,-7}, {1,1,1,0})
+anim:move(f1bg, {0,0})
+anim:tint(f1bg, {1,1,1,1})
+stop_ff()
+set_box('hide')
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image035", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image036", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+set_box()
+|>
+当然，接下来少不了各种精致的其他宣品出炉......
+
+<|
+show(f1bg, "wuhui/item/image037", {0,-7}, {1,1,1,0})
+anim:move(f1bg, {0,0})
+anim:tint(f1bg, {1,1,1,1})
+stop_ff()
+set_box('hide')
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image038", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image039", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image040", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+anim:wait(1):action(function()
+            show(f1bg, "wuhui/item/image041", {0,-7}, {1,1,1,0})
+        end)
+anim:wait(1):move(f1bg, {0,0})
+anim:wait(1):tint(f1bg, {1,1,1,1})
+|>
+
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+set_box()
+|>
+打造实体宣传品的任务就这样完成咯！
+
+“为了在现场的各种细节上渗透我们这个活动的审美风格，让大家在发现它们的存在时有惊喜的感觉~这样会更有沉浸感和体验感”，宣导的话还是时时萦绕在我耳边。
+
+或许，正是这种对呈现效果反复雕琢的态度，成就了学生会一个又一个精彩的活动吧！
+<|
+v_xuanchuan_finish_xuanchuanping = true
+|>
+
+@<|
+jump_to('l_precheck')
+|>

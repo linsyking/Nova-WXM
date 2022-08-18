@@ -1,4 +1,4 @@
-﻿using Nova.Exceptions;
+using Nova.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -285,8 +285,9 @@ namespace Nova
             SaveAll();
             UnityEditor.EditorApplication.isPlaying = false;
 #else
-            ForceQuit = true;
-            Application.Quit();
+            //ForceQuit = true;
+            //Application.Quit();
+            PlayerPrefs.DeleteAll();
             // All components write to disk in OnDestroy
 #endif
         }
