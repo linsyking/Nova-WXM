@@ -15,7 +15,7 @@ MonoBehaviour:
   ProjectConf:
     projectName: LLTest
     Appid: wx41f8bb13152040ba
-    CDN: https://res.yydbxx.cn/res/
+    CDN: https://res.yydbxx.cn/res/player
     assetLoadType: 0
     VideoUrl: 
     DST: E:/UnityProject/NT

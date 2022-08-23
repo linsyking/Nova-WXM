@@ -2,6 +2,7 @@
 label('wuhui_houqin', '舞会后勤')
 |>
 <|
+m_release_all()
 anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/taolun", "fade", 1)
 box_hide_show(4)
 |>
@@ -47,6 +48,7 @@ branch {
 
 @<| label 'l_zijinchoubei' |>
 <|
+m_release_all()
 anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s1_zijin", "fade", 1)
 box_hide_show(4)
 |>
@@ -101,14 +103,16 @@ branch {
 一位报名舞会的同学::hello小舞，我和我npy都集赞超过99啦！还有，我报名了在舞会上唱歌哦~我们一起要交多少耶？
 
 <|
-v_inputminigame_text = "他们要付多少钱呢:"
+v_inputminigame_text = "他们要付多少钱呢:（156）"
 uiminigame('InputMinigame')
+wxpreload('test1')
 |>
 小舞::我觉得要付{{v_inputminigame_result}}元钱！
 @<|
 branch {
     { dest = 'l_minigame_money_finished', mode = 'jump', cond = 'v_inputminigame_result == "156"'},
-    { dest = 'l_minigame_money', mode = 'jump', cond = 'true'}
+	{ dest = 'test_image', mode = 'jump', cond = 'v_inputminigame_result == "233"'},
+    { dest = 'l_minigame_money', mode = 'jump', cond = 'true'},
 }
 |>
 
@@ -131,6 +135,7 @@ jump_to 'l_precheck'
 
 @<| label 'l_changdidingdang' |>
 <|
+m_release_all()
 anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s1_changdi", "fade", 1)
 box_hide_show(4)
 |>
@@ -147,7 +152,6 @@ box_hide_show(4)
 我立刻开始脑补各种和场地负责人大叔对线压价谈条件的画面，母胎社恐的我能胜任这样的工作吗？ 
 
 场地负责人大叔::小同学，你看我们这个场地，地理位置多好，就在黄浦江边，这面积也三百多平了，怎么也得四万起步。
-（TODO）谈判
 
 <|
 anim:cam_punch()
@@ -219,6 +223,7 @@ jump_to 'l_precheck'
 
 @<| label 'l_chaxieyuding' |>
 <|
+m_release_all()
 anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s1_chaxie", "fade", 1)
 box_hide_show(4)
 |>
@@ -257,6 +262,7 @@ jump_to 'l_precheck'
 
 @<| label 'l_caigouzujie' |>
 <|
+m_release_all()
 anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s1_shebei", "fade", 1)
 box_hide_show(4)
 |>

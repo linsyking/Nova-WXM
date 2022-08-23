@@ -49,7 +49,7 @@ namespace Nova
             InitReferences();
             this.displayData = displayData;
             this.alignment = alignment;
-            this.characterNameColor = characterNameColor;
+            //this.characterNameColor = characterNameColor;
             this.textColor = textColor;
             this.materialName = materialName;
             this.layoutSetting = layoutSetting;

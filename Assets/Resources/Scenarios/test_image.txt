@@ -1,0 +1,22 @@
+@<|
+label('test_image', '4K图像测试')
+|>
+<|
+anim:trans(bg, 'data/test1', 'fade', 1)
+stop(bgm)
+set_box()
+wxpreload('test2')
+wxpreload('test3')
+|>
+画1
+
+<|
+anim:trans(bg, 'data/test2', 'fade', 1)
+|>
+画2
+
+<|
+anim:trans(bg, 'data/test3', 'fade', 1)
+|>
+画3
+@<| is_end() |>

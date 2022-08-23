@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -207,6 +207,8 @@ namespace Nova
         public void ResetGameState()
         {
             CancelAction();
+            // Clean texture memory
+            Utils.FindNovaGameController().AssetLoader.m_release_all();
 
             // Reset all states
             nodeHistory.Clear();

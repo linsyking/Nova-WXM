@@ -1,6 +1,5 @@
 @<|
 label('ch_01', '文艺部欢迎您')
-is_unlocked_start()
 |>
 <|
 stop(bgm)

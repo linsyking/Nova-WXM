@@ -25,5 +25,6 @@ require 'transition'
 require 'variables'
 require 'video'
 require 'auto_save'
+require 'assets'
 
 require 'animation_presets'

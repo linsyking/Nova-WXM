@@ -13,14 +13,12 @@ namespace Nova
 
         private IReadOnlyDictionary<SystemLanguage, string> displayTexts;
         private BranchImageInformation imageInfo;
-        private string imageFolder;
 
-        public void Init(IReadOnlyDictionary<SystemLanguage, string> displayTexts, BranchImageInformation imageInfo,
-            string imageFolder, UnityAction onClick, bool interactable)
+        public void Init(IReadOnlyDictionary<SystemLanguage, string> displayTexts, BranchImageInformation imageInfo
+           , UnityAction onClick, bool interactable)
         {
             this.displayTexts = displayTexts;
             this.imageInfo = imageInfo;
-            this.imageFolder = imageFolder;
 
             if (imageInfo != null)
             {
@@ -32,6 +30,7 @@ namespace Nova
 
                 transform.localPosition = new Vector3(imageInfo.positionX, imageInfo.positionY, 0f);
                 transform.localScale = new Vector3(imageInfo.scale, imageInfo.scale, 1f);
+                GetComponent<AutoSize>().cancelSize();
             }
 
             UpdateText();
@@ -56,7 +55,8 @@ namespace Nova
             if (imageInfo != null)
             {
                 // TODO: preload
-                image.sprite = AssetLoader.Load<Sprite>(System.IO.Path.Combine(imageFolder, imageInfo.name));
+                //image.sprite = AssetLoader.Load<Sprite>(System.IO.Path.Combine(imageFolder, imageInfo.name));
+                image.sprite = Utils.FindNovaGameController().AssetLoader.getABSprite<Sprite>(imageInfo.name);
                 image.SetNativeSize();
             }
         }

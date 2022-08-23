@@ -34,12 +34,13 @@ set_box()
 branch {
     { dest = 'wuhui_houqin', text = '后勤组'},
     { dest = 'wuhui_xuanchuan', text = '宣传组'},
-    { dest = 'wuhui_jiemu', text = '节目组'},
+    { dest = 'wuhui_jiemu', text = '节目组'}
 }
 |>
 
 @<| label 'wuhui_end' |>
 <|
+m_release_all()
 anim:trans(bg, 'wuhui/last', 'fade', 1)
 set_box()
 |>

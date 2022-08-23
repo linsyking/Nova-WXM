@@ -610,7 +610,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1190546562535981386}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.9999999
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -771,7 +771,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1190546562183640771}
   m_HandleRect: {fileID: 1190546562183640772}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1140,8 +1140,8 @@ RectTransform:
   m_Father: {fileID: 1190546561186920765}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.00000011920929, y: 0}
-  m_AnchorMax: {x: 0.9999999, y: 1}
+  m_AnchorMin: {x: 0.000000059604645, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1645,7 +1645,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1190546561904406128}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2346,7 +2346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3113775755284081194
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3357,6 +3357,12 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u6587\u672C"
       objectReference: {fileID: 0}
+    - target: {fileID: 5769988078587996986, guid: 3d1c2b61056ae4c29aaf2eb230aa47a3,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c4c101891dbff7d4ca2b4f56d2f8e8eb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d1c2b61056ae4c29aaf2eb230aa47a3, type: 3}
 --- !u!224 &6394128561988453301 stripped
@@ -5703,6 +5709,17 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u663E\u793A"
       objectReference: {fileID: 0}
+    - target: {fileID: 5769988078587996986, guid: 3d1c2b61056ae4c29aaf2eb230aa47a3,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c4c101891dbff7d4ca2b4f56d2f8e8eb,
+        type: 3}
+    - target: {fileID: 5769988078587996986, guid: 3d1c2b61056ae4c29aaf2eb230aa47a3,
+        type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d1c2b61056ae4c29aaf2eb230aa47a3, type: 3}
 --- !u!224 &8873576822639568761 stripped
@@ -6846,6 +6863,12 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u63A7\u5236"
       objectReference: {fileID: 0}
+    - target: {fileID: 5769988078587996986, guid: 3d1c2b61056ae4c29aaf2eb230aa47a3,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c4c101891dbff7d4ca2b4f56d2f8e8eb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d1c2b61056ae4c29aaf2eb230aa47a3, type: 3}
 --- !u!1 &8873576823783735883 stripped

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -136,6 +136,9 @@ namespace Nova
 
         public void OnPointerUp(PointerEventData eventData)
         {
+            //Debug.Log($"up: old {eventData.pointerId}");
+            eventData.pointerId = Math.Abs(eventData.pointerId) > 30 ? 0 : eventData.pointerId;
+            //Debug.Log($"up: new {eventData.pointerId}");
             if (!gameController.inputEnabled)
             {
                 // Touch finger
@@ -217,6 +220,9 @@ namespace Nova
 
         public void OnPointerDown(PointerEventData eventData)
         {
+            //Debug.Log($"down: old {eventData.pointerId}");
+            eventData.pointerId = Math.Abs(eventData.pointerId) > 30 ? 0 : eventData.pointerId;
+            //Debug.Log($"down: new {eventData.pointerId}");
             if (!gameController.inputEnabled)
             {
                 // Mouse left button

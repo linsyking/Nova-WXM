@@ -27,7 +27,7 @@ function preload(obj, resource_name)
             if pose then
                 obj:PreloadPose(pose)
             else
-                Nova.AssetLoader.Preload(Nova.AssetCacheType.Image, obj.imageFolder .. '/' .. resource_name)
+                Nova.AssetLoader.Preload(Nova.AssetCacheType.Image, resource_name)
             end
         end
     end
@@ -56,7 +56,7 @@ function unpreload(obj, resource_name)
             if pose then
                 obj:UnpreloadPose(pose)
             else
-                Nova.AssetLoader.Unpreload(Nova.AssetCacheType.Image, obj.imageFolder .. '/' .. resource_name)
+                Nova.AssetLoader.Unpreload(Nova.AssetCacheType.Image, resource_name)
             end
         end
     end

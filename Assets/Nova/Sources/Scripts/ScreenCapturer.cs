@@ -69,7 +69,8 @@ namespace Nova
 
 #else
             var platform = WX.GetSystemInfoSync().platform;
-            if (platform != "ios" && platform != "mac")
+            // IOS High Performance mode is OK with saving screenshot
+            if (true)
             {
                 var texture = new Texture2D(Bookmark.ScreenshotWidth, Bookmark.ScreenshotHeight, TextureFormat.RGB24,
                 false);

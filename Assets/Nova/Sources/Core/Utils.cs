@@ -282,7 +282,8 @@ namespace Nova
             NovaAnimation.StopAll();
 
 #if UNITY_EDITOR
-            SaveAll();
+            //SaveAll();
+            PlayerPrefs.DeleteAll();
             UnityEditor.EditorApplication.isPlaying = false;
 #else
             //ForceQuit = true;

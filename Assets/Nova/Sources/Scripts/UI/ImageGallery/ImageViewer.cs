@@ -20,7 +20,8 @@ namespace Nova
 
         private void Refresh()
         {
-            var sprite = AssetLoader.Load<Sprite>(group.entries[index].resourcePath);
+            var path = group.entries[index].resourcePath.Substring(12);
+            var sprite = AssetLoader.Load<Sprite>(path);
             image.sprite = sprite;
             image.rectTransform.sizeDelta = new Vector2(sprite.texture.width, sprite.texture.height);
             float baseScale = Mathf.Max(defaultImageSize.x / sprite.texture.width,

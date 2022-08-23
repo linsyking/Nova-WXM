@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using UnityEngine.UI;
+using UnityEngine;
 
 namespace Nova
 {
@@ -34,6 +35,7 @@ namespace Nova
             checkpointManager.Init();
             gameState.SaveInitialCheckpoint();
             Show(null);
+
         }
 
         public override void Show(Action onFinish)

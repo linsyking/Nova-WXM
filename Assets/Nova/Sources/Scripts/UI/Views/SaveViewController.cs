@@ -403,12 +403,12 @@ namespace Nova
             checkpointManager.SaveBookmark(saveID, bookmark);
             Destroy(texture);
 
-            Alert.Show("已在此处自动存档");
         }
 
         public void AutoSaveBookmark()
         {
             _autoSaveBookmark((int)BookmarkType.AutoSave, I18n.__("bookmark.autosave.page"));
+            Alert.Show("已在此处自动存档");
         }
 
         private void _quickSaveBookmark()

@@ -2,6 +2,7 @@
 label 'wuhui_xuanchuan'
 |>
 <|
+m_release_all()
 anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/taolun", "fade", 1)
 box_hide_show(4)
 |>
@@ -43,6 +44,7 @@ branch {
 
 @<| label 'l_tuisong' |>
 <|
+m_release_all()
 anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s2_tuisong", "fade", 1)
 box_hide_show(4)
 |>
@@ -58,8 +60,8 @@ box_hide_show(4)
 宣传导::别急小舞，等策划组给出整体时间线，我们再细细研究。
 
 宣传导::嗨，刚刚导演组开完会啦，小舞你快来看看时间线里面对应的推送发布节点！
+@<| jump_to('l_sortminigame1') |>
 
-点击查看各推送内容要求
 @<|
 label 'l_sortminigame1'
 |>
@@ -119,8 +121,19 @@ label 'l_tuisong2'
 
 现在满脑子是视频里精妙的镜头和美美帅帅的男女主啦，当然还有大家的花絮......
 
-（图片嵌入TODO）
+<|
+show(f1bg, "wuhui/item/image009", {0,-7}, {1,1,1,0})
+anim:move(f1bg, {0,0})
+anim:tint(f1bg, {1,1,1,1})
+stop_ff()
+set_box('hide')
+|>
 
+<|
+anim:move(f1bg, {0,-7})
+anim:tint(f1bg, {1,1,1,0})
+set_box()
+|>
 宣传导::嘿小舞，你又开小差啦。好了，这次组会就开到这里，下周开会我们就要开始讨论修改你做的推送啦，不许咕咕！
 
 小舞::是...一定不咕咕！
@@ -153,8 +166,17 @@ label 'l_tuisong2'
 
 虽然看大家的意见，推送初稿是要被迫重修了，可这又何尝不是一个让自己ps技能蜕变的过程呢？
 
-推送最终稿选择（TODO）
+选择一个你喜欢的推送吧！
+@<|
+branch {
+    { dest = 'l_choosetuisong', image = {'wuhui/item/image010', {-700, -100, 0.8}}},
+    { dest = 'l_choosetuisong', image = {'wuhui/item/image011', {-200, -100, 0.8}}},
+    { dest = 'l_choosetuisong', image = {'wuhui/item/image012', {300, -100, 0.8}}},
+    { dest = 'l_choosetuisong', image = {'wuhui/item/image013', {730, -100, 0.8}}}
+}
+|>
 
+@<| label 'l_choosetuisong' |>
 宣传导::小舞你快看，你做的推送发出来啦！
 
 我一听宣导提醒就兴奋起来了，赶紧扔下数学作业去刷puq，果然，puq被舞会的推送霸屏了！
@@ -180,6 +202,7 @@ jump_to('l_precheck')
 
 @<| label 'l_logo' |>
 <|
+m_release_all()
 anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s2_logo", "fade", 1)
 box_hide_show(4)
 |>
@@ -329,6 +352,7 @@ jump_to('l_precheck')
 
 @<| label 'l_mv' |>
 <|
+m_release_all()
 anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s2_mv", "fade", 1)
 box_hide_show(4)
 |>
@@ -416,6 +440,7 @@ jump_to('l_precheck')
 
 @<| label 'l_xuanchuanping' |>
 <|
+m_release_all()
 anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s2_xuanpin", "fade", 1)
 box_hide_show(4)
 |>

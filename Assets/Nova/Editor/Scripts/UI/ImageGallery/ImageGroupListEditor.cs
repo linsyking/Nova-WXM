@@ -109,7 +109,7 @@ namespace Nova.Editor
             foreach (var entry in group.entries)
             {
                 var path = entry.resourcePath;
-                if (Resources.Load<Sprite>(path) == null)
+                if (LoadSpriteFromFile.LoadNewSprite(path) == null)
                 {
                     return false;
                 }
@@ -123,7 +123,8 @@ namespace Nova.Editor
             if (group.entries.Count == 0) return true;
             var entry = group.entries[0];
             var path = entry.resourcePath;
-            var sprite = Resources.Load<Sprite>(path);
+            var sprite = LoadSpriteFromFile.LoadNewSprite(path);
+            //var sprite = Resources.Load<Sprite>(path);
             if (sprite == null) return true;
             var tex = sprite.texture;
             var size = entry.snapshotScale * new Vector2(tex.width, tex.height);
@@ -149,16 +150,19 @@ namespace Nova.Editor
 
                 if (GroupIsEmpty(group))
                 {
+                    Debug.LogError("Group is empty!");
                     emptyGroupList.indices.Add(i);
                 }
 
                 if (!GroupResourcesReferenceIsCorrect(group))
                 {
+                    Debug.LogError("Reference is wrong!");
                     badReferenceGroupList.indices.Add(i);
                 }
 
                 if (!GroupSnapshotAspectRatioIsCorrect(group))
                 {
+                    Debug.Log("Ratio is wrong!");
                     badSnapshotAspectRatioGroupList.indices.Add(i);
                 }
             }

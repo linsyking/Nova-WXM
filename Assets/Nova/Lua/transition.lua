@@ -259,7 +259,7 @@ make_anim_method('trans', function(self, obj, image_name, shader_layer, times, p
     else
         action_begin = function()
             if obj.currentImageName and obj.currentImageName ~= '' then
-                local tex = Nova.AssetLoader.LoadTexture(obj.imageFolder .. '/' .. obj.currentImageName)
+                local tex = Nova.AssetLoader.LoadTexture(obj.currentImageName)
                 mat:SetTexture('_SubTex', tex)
             else
                 mat:SetTexture('_SubTex', nil)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 namespace Nova
 {
@@ -98,8 +99,12 @@ namespace Nova
                         if (unlockedCount > 0)
                         {
                             int firstUnlocked = GetNextUnlockedImage(group, unlockInfo, -1);
+#if UNITY_EDITOR
                             entry.snapshot.sprite =
-                                Resources.Load<Sprite>(group.entries[firstUnlocked].snapshotResourcePath);
+                                LoadSpriteNew.LoadNewSprite(group.entries[firstUnlocked].snapshotResourcePath);
+#else
+                            entry.snapshot.sprite = Utils.FindNovaGameController().AssetLoader.getABSprite<Sprite>(Path.GetFileName(group.entries[firstUnlocked].snapshotResourcePath) + ".jpg");
+#endif
                             entry.button.interactable = true;
                             entry.button.onClick.AddListener(() => ShowGroup(group, unlockInfo));
 
@@ -194,7 +199,7 @@ namespace Nova
             }
         }
 
-        #region For debug
+#region For debug
 
         private void UnlockAllImages()
         {
@@ -221,6 +226,6 @@ namespace Nova
             }
         }
 
-        #endregion
+#endregion
     }
 }

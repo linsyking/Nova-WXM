@@ -1,0 +1,111 @@
+ManifestFileVersion: 0
+CRC: 2834375024
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7e38f6ffd30d7dfa137f3d1d0e5341a8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 20a6dbe6c5ce530ea5e4471180a6838f
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6ac395c1b78e415688aa2aa3f0b8122a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c810d82e5bf245c0abc5d770e9881d37, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Assembly-CSharp
+  ClassName: Nova.ImageEntry
+- AssemblyName: Assembly-CSharp
+  ClassName: Nova.LocaleStringPair
+Assets:
+- Assets/Resources/Backgrounds/wuhui/last.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image035.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image022.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image009.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image012.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image037.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image010.jpg
+- Assets/Resources/Backgrounds/wuhui/item/logo.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image052.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image040.jpg
+- Assets/Resources/Backgrounds/wuhui/Snapshots/s2_tuisong.__snapshot.png
+- Assets/Resources/Backgrounds/wuhui/s3_group.asset
+- Assets/Resources/Backgrounds/wuhui/item/image044.jpg
+- Assets/Resources/Backgrounds/wuhui/s1_group.asset
+- Assets/Resources/Backgrounds/room.png
+- Assets/Resources/Backgrounds/wuhui/item/image038.jpg
+- Assets/Resources/Backgrounds/wuhui/item/yanchu_group.asset
+- Assets/Resources/Backgrounds/wuhui/Snapshots/s3_dc.__snapshot.png
+- Assets/Resources/Backgrounds/wuhui/last_group.asset
+- Assets/Resources/Backgrounds/wuhui/item/image036.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image046.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image025.jpg
+- Assets/Resources/Backgrounds/wuhui/s3_xianchang.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image056.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image020.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image033.jpg
+- Assets/Resources/Backgrounds/wuhui/Snapshots/s1_shebei.__snapshot.png
+- Assets/Resources/Backgrounds/wuhui/item/chaxie.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image030.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image041.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image032.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image042.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image029.jpg
+- Assets/Resources/Backgrounds/wuhui/s3_dc.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image039.jpg
+- Assets/Resources/Backgrounds/wuhui/s3_jiaoxue.jpg
+- Assets/Resources/Backgrounds/wuhui/s1_shebei.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image028.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image051.jpg
+- Assets/Resources/Backgrounds/wuhui/item/Snapshots/image047.__snapshot.png
+- Assets/Resources/Backgrounds/wuhui/item/image048.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image059.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image055.jpg
+- Assets/Resources/Backgrounds/wuhui/taolun_group.asset
+- Assets/Resources/Backgrounds/wuhui/item/image021.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image049.jpg
+- Assets/Resources/Backgrounds/room_group.asset
+- Assets/Resources/Backgrounds/wuhui/Snapshots/entry.__snapshot.png
+- Assets/Resources/Backgrounds/Snapshots/rain.__snapshot.png
+- Assets/Resources/Backgrounds/wuhui/item/image058.jpg
+- Assets/Resources/Backgrounds/wuhui/s2_logo.jpg
+- Assets/Resources/Backgrounds/wuhui/taolun.jpg
+- Assets/Resources/Backgrounds/wuhui/Snapshots/last.__snapshot.png
+- Assets/Resources/Backgrounds/wuhui/item/image027.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image057.jpg
+- Assets/Resources/Backgrounds/Backgrounds_image_group_list.asset
+- Assets/Resources/Backgrounds/black.png
+- Assets/Resources/Backgrounds/wuhui/s2_group.asset
+- Assets/Resources/Backgrounds/wuhui/s2_tuisong.jpg
+- Assets/Resources/Backgrounds/wuhui/s1_changdi.jpg
+- Assets/Resources/Backgrounds/wuhui/s2_xuanpin.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image023.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image045.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image031.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image050.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image024.jpg
+- Assets/Resources/Backgrounds/Snapshots/room.__snapshot.png
+- Assets/Resources/Backgrounds/wuhui/item/image053.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image026.jpg
+- Assets/Resources/Backgrounds/wuhui/s1_zijin.jpg
+- Assets/Resources/Backgrounds/wuhui/Snapshots/taolun.__snapshot.png
+- Assets/Resources/Backgrounds/wuhui/item/image047.jpg
+- Assets/Resources/Backgrounds/wuhui/s2_mv.jpg
+- Assets/Resources/Backgrounds/wuhui/s3_wuban.jpg
+- Assets/Resources/Backgrounds/wuhui/s1_chaxie.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image034.jpg
+- Assets/Resources/Backgrounds/wuhui/entry.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image011.jpg
+- Assets/Resources/Backgrounds/rain_group.asset
+- Assets/Resources/Backgrounds/wuhui/entry_group.asset
+- Assets/Resources/Backgrounds/rain.png
+- Assets/Resources/Backgrounds/wuhui/item/image013.jpg
+- Assets/Resources/Backgrounds/wuhui/item/image054.jpg
+Dependencies: []

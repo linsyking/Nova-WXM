@@ -2,6 +2,7 @@
 label 'wuhui_jiemu'
 |>
 <|
+m_release_all()
 anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/taolun", "fade", 1)
 box_hide_show(4)
 |>
@@ -42,6 +43,7 @@ branch {
 
 @<| label 'l_wudao' |>
 <|
+m_release_all()
 anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s3_jiaoxue", "fade", 1)
 box_hide_show(4)
 |>
@@ -127,6 +129,7 @@ jump_to 'l_precheck'
 
 @<| label 'l_dresscode' |>
 <|
+m_release_all()
 anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s3_dc", "fade", 1)
 box_hide_show(4)
 |>
@@ -175,6 +178,7 @@ jump_to 'l_precheck'
 
 @<| label 'l_wuban' |>
 <|
+m_release_all()
 anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s3_wuban", "fade", 1)
 box_hide_show(4)
 |>
@@ -298,6 +302,7 @@ jump_to 'l_precheck'
 
 @<| label 'l_xianchang' |>
 <|
+m_release_all()
 anim:trans(bg, "black", "fade", 3):trans(bg, "wuhui/s3_xianchang", "fade", 1)
 box_hide_show(4)
 |>

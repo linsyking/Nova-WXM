@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +8,6 @@ namespace Nova
     {
         public BranchButtonController branchButtonPrefab;
         public GameObject backPanel;
-        public string imageFolder;
 
         private GameState gameState;
 
@@ -49,7 +48,7 @@ namespace Nova
                 var button = Instantiate(branchButtonPrefab, transform);
                 // Prevent showing the button before init
                 button.gameObject.SetActive(false);
-                button.Init(selection.texts, selection.imageInfo, imageFolder, () => Select(index), selection.active);
+                button.Init(selection.texts, selection.imageInfo, () => Select(index), selection.active);
                 button.gameObject.SetActive(true);
             }
         }

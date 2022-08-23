@@ -1,6 +1,5 @@
 @<|
 label 'test_minigame'
-is_unlocked_start()
 |>
 <|
 show(bg, 'room')

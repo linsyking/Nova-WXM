@@ -20,7 +20,7 @@ namespace Nova.Editor
             return Path.Combine(Path.GetDirectoryName(Application.dataPath), AssetDatabase.GetAssetPath(asset));
         }
 
-        private const string ResourcesFolderName = "/Resources/";
+        private const string ResourcesFolderName = "NewResources/";
 
         private static string GetResourcesFolder(string path)
         {
@@ -32,12 +32,14 @@ namespace Nova.Editor
                 throw new ArgumentException();
             }
 
-            return path.Substring(0, index + ResourcesFolderName.Length);
+
+            return path;
         }
 
         private static string GetResourcePath(string path)
         {
             path = Utils.ConvertPathSeparator(path);
+            Debug.Log($"origin: {path}");
 
             var index = path.IndexOf(ResourcesFolderName, StringComparison.Ordinal);
             if (index == -1)
@@ -45,17 +47,19 @@ namespace Nova.Editor
                 throw new ArgumentException();
             }
 
-            var resourcePath = path.Substring(index + ResourcesFolderName.Length);
+            var resourcePath = path.Substring(index  + ResourcesFolderName.Length);
             var dirName = Path.GetDirectoryName(resourcePath);
             var fileName = Path.GetFileNameWithoutExtension(resourcePath);
             resourcePath = Path.Combine(dirName, fileName);
             resourcePath = Utils.ConvertPathSeparator(resourcePath);
+            //Debug.Log($"dealing: {resourcePath}");
             return resourcePath;
         }
 
         private static string GetCommonPrefix(IEnumerable<string> paths)
         {
             var fileNames = paths.Select(Path.GetFileNameWithoutExtension).ToList();
+            //Debug.Log(fileNames);
             var prefix = new string(
                 fileNames.First()
                     .Substring(0, fileNames.Min(s => s.Length))
@@ -76,7 +80,9 @@ namespace Nova.Editor
         private static void CreateImageGroup(string path, IEnumerable<string> imagePaths)
         {
             var imagePathList = imagePaths.ToList();
+
             var groupPath = Path.Combine(path, GetCommonPrefix(imagePathList) + "_group.asset");
+            //Debug.Log($"load at ${groupPath}");
             var group = AssetDatabase.LoadAssetAtPath<ImageGroup>(groupPath);
             if (group == null)
             {
@@ -167,9 +173,17 @@ namespace Nova.Editor
             entryProperty.FindPropertyRelative("snapshotScale.y").floatValue = 1.0f;
         }
 
+        private Sprite resS;
+
         private void DrawPreview(string path, ImageEntry entry, SerializedProperty entryProperty)
         {
-            var sprite = Resources.Load<Sprite>(path);
+            var sprite = resS;
+            if(sprite == null)
+            {
+                sprite = LoadSpriteFromFile.LoadNewSprite(path);
+
+                resS = sprite;
+            }
             if (sprite == null)
             {
                 EditorGUILayout.HelpBox("Invalid image resource path!", MessageType.Error);
@@ -252,30 +266,44 @@ namespace Nova.Editor
             }
         }
 
-        private static byte[] GetSnapshotPNGData()
+        private static byte[] GetSnapshotJPGData()
         {
             var oldRt = RenderTexture.active;
             RenderTexture.active = SnapshotRenderTexture;
             SnapshotTexture.ReadPixels(new Rect(0, 0, SnapshotWidth, SnapshotHeight), 0, 0);
             SnapshotTexture.Apply();
             RenderTexture.active = oldRt;
-            return SnapshotTexture.EncodeToPNG();
+            return SnapshotTexture.EncodeToJPG(quality: 100);
         }
 
         private static void GenerateSnapshot(ImageEntry entry)
         {
             if (entry == null) return;
-            var sprite = Resources.Load<Sprite>(entry.resourcePath);
+            //var sprite = Resources.Load<Sprite>(entry.resourcePath);
+            var sprite = LoadSpriteFromFile.LoadNewSprite(entry.resourcePath);
             if (sprite == null) return;
             var tex = sprite.texture;
             Graphics.Blit(tex, SnapshotRenderTexture, entry.snapshotScale, entry.snapshotOffset);
-            var data = GetSnapshotPNGData();
+            var data = GetSnapshotJPGData();
 
-            var assetFullPath = GetAssetFullPath(sprite);
+            //var assetFullPath = Path.Combine(Application.dataPath, entry.resourcePath);
             var snapshotFullPath =
-                Path.Combine(GetResourcesFolder(assetFullPath), entry.snapshotResourcePath + ".png");
+                Utils.ConvertPathSeparator(Path.Combine(Application.dataPath + "/" + ResourcesFolderName, entry.snapshotResourcePath + ".jpg"));
+            //Debug.Log(snapshotFullPath);
             Directory.CreateDirectory(Path.GetDirectoryName(snapshotFullPath));
             File.WriteAllBytes(snapshotFullPath, data);
+
+            var ap = "Assets/NewResources/" + GetResourcePath(snapshotFullPath) + ".jpg";
+            AssetDatabase.Refresh();
+            AssetDatabase.ImportAsset(ap);
+            TextureImporter importer = AssetImporter.GetAtPath(ap) as TextureImporter;
+            importer.textureType = TextureImporterType.Sprite;
+            var webglOverrides = importer.GetPlatformTextureSettings("WebGL");
+            webglOverrides.maxTextureSize = 512;
+            webglOverrides.format = TextureImporterFormat.DXT1;
+            webglOverrides.overridden = true;
+            importer.SetPlatformTextureSettings(webglOverrides);
+            AssetDatabase.WriteImportSettingsIfDirty(ap);
         }
 
         private ImageGroup Target => target as ImageGroup;

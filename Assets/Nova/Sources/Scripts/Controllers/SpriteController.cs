@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -153,7 +153,7 @@ namespace Nova
                 return;
             }
 
-            Sprite newSprite = AssetLoader.Load<Sprite>(System.IO.Path.Combine(imageFolder, imageName));
+            Sprite newSprite = AssetLoader.Load<Sprite>(imageName);
             sprite = newSprite;
             currentImageName = imageName;
         }
@@ -179,7 +179,7 @@ namespace Nova
                 return;
             }
 
-            sprite = AssetLoader.Load<Sprite>(System.IO.Path.Combine(imageFolder, currentImageName));
+            sprite = AssetLoader.Load<Sprite>(currentImageName);
         }
 
         #region Restoration
