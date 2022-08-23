@@ -150,11 +150,12 @@ namespace Nova
 
         private T loadABSprite<T>(string abName, string rname) where T : UnityObject
         {
-            if (allLoadedTextures.ContainsKey($"{abName}/{rname}") && allLoadedTextures[$"{abName}/{rname}"] != null)
-            {
-                // Has cached data, use it!
-                return (T)allLoadedTextures[$"{abName}/{rname}"];
-            }
+            //if (allLoadedTextures.ContainsKey($"{abName}/{rname}") && allLoadedTextures[$"{abName}/{rname}"] != null)
+            //{
+            //    // Has cached data, use it!
+            //    Debug.Log($"Found cached data {rname}");
+            //    return allLoadedTextures[$"{abName}/{rname}"] as T;
+            //}
             var ab = assetBundles[abName];
             var lld = ab.LoadAsset<T>(rname);
 
@@ -171,7 +172,6 @@ namespace Nova
         public T getABSprite<T>(string path) where T : UnityObject
         {
             Resources.UnloadUnusedAssets();
-
 
             //var lockednum = getLockedNumber();
             //Debug.Log($"Getting sprite {rname}");
