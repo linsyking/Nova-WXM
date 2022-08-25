@@ -1,22 +1,89 @@
 @<|
-label('test_image', '4K图像测试')
+label('test_image', '图像测试')
+-- is_unlocked_start()
 |>
 <|
-anim:trans(bg, 'data/test1', 'fade', 1)
+anim:trans(bg, 'test/4k_1m', 'fade', 1)
 stop(bgm)
 set_box()
-wxpreload('test2')
-wxpreload('test3')
+wxpreload('test/1080p_500k')
+wxpreload('test/1080p_300k')
+wxpreload('test/1080p_200k')
+wxpreload('test/720p_200k')
+wxpreload('test/720p_100k')
+wxpreload('test/360p_40k')
+wxpreload('test/c4k_1m')
+wxpreload('test/c1080p_500k')
+wxpreload('test/c1080p_300k')
+wxpreload('test/c1080p_200k')
+wxpreload('test/c720p_200k')
+wxpreload('test/c720p_100k')
+wxpreload('test/c360p_40k')
 |>
-画1
+无压缩4K 1MB
 
 <|
-anim:trans(bg, 'data/test2', 'fade', 1)
+anim:trans(bg, 'test/1080p_500k', 'fade', 1)
 |>
-画2
+无压缩1080p 500KB
 
 <|
-anim:trans(bg, 'data/test3', 'fade', 1)
+anim:trans(bg, 'test/1080p_300k', 'fade', 1)
 |>
-画3
+无压缩1080p 300KB
+
+<|
+anim:trans(bg, 'test/1080p_200k', 'fade', 1)
+|>
+无压缩1080p 200KB
+
+<|
+anim:trans(bg, 'test/720p_200k', 'fade', 1)
+|>
+无压缩720p 200KB
+
+<|
+anim:trans(bg, 'test/720p_100k', 'fade', 1)
+|>
+无压缩720p 100KB
+
+<|
+anim:trans(bg, 'test/360p_40k', 'fade', 1)
+|>
+无压缩360p 40KB
+
+<|
+anim:trans(bg, 'test/c4k_1m', 'fade', 1)
+|>
+压缩4K 1MB
+
+<|
+anim:trans(bg, 'test/c1080p_500k', 'fade', 1)
+|>
+压缩1080p 500KB
+
+<|
+anim:trans(bg, 'test/c1080p_300k', 'fade', 1)
+|>
+压缩1080p 300KB
+
+<|
+anim:trans(bg, 'test/c1080p_200k', 'fade', 1)
+|>
+压缩1080p 200KB
+
+<|
+anim:trans(bg, 'test/c720p_200k', 'fade', 1)
+|>
+压缩720p 200KB
+
+<|
+anim:trans(bg, 'test/c720p_100k', 'fade', 1)
+|>
+压缩720p 100KB
+
+<|
+anim:trans(bg, 'test/c360p_40k', 'fade', 1)
+|>
+压缩360p 40KB
 @<| is_end() |>

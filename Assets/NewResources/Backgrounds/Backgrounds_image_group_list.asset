@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Backgrounds_image_group_list
   m_EditorClassIdentifier: 
   groups:
-  - {fileID: 11400000, guid: d72e23a6f7110cb408cc95805c986ffd, type: 2}
   - {fileID: 11400000, guid: 5219d1ffa7a68da4982c11dc5e927ca8, type: 2}
   - {fileID: 11400000, guid: e18a549a933be9c4b90bb2273f4b9169, type: 2}
   - {fileID: 11400000, guid: 45399782f27015648a9c280133e62d83, type: 2}

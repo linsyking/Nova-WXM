@@ -304,6 +304,8 @@ namespace Nova.Editor
             webglOverrides.overridden = true;
             importer.SetPlatformTextureSettings(webglOverrides);
             AssetDatabase.WriteImportSettingsIfDirty(ap);
+            var asset = AssetDatabase.LoadMainAssetAtPath(ap);
+            AssetDatabase.SetLabels(asset, new[] { "Snapshot" });
         }
 
         private ImageGroup Target => target as ImageGroup;

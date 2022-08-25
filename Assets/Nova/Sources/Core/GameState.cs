@@ -209,6 +209,8 @@ namespace Nova
             CancelAction();
             // Clean texture memory
             Utils.FindNovaGameController().AssetLoader.m_release_all();
+            // Save data
+            Utils.SaveAll();
 
             // Reset all states
             nodeHistory.Clear();
