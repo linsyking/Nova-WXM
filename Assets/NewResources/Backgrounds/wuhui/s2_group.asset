@@ -13,18 +13,11 @@ MonoBehaviour:
   m_Name: s2_group
   m_EditorClassIdentifier: 
   entries:
-  - id: s2_tuisong
+  - id: s2_logo
     displayNames:
     - locale: 40
-      value: s2_tuisong
-    resourcePath: Backgrounds/wuhui/s2_tuisong
-    snapshotOffset: {x: 0, y: 0}
-    snapshotScale: {x: 1, y: 1}
-  - id: s2_mv
-    displayNames:
-    - locale: 40
-      value: s2_mv
-    resourcePath: Backgrounds/wuhui/s2_mv
+      value: s2_logo
+    resourcePath: Backgrounds/wuhui/s2_logo
     snapshotOffset: {x: 0, y: 0}
     snapshotScale: {x: 1, y: 1}
   - id: s2_xuanpin
@@ -34,10 +27,17 @@ MonoBehaviour:
     resourcePath: Backgrounds/wuhui/s2_xuanpin
     snapshotOffset: {x: 0, y: 0}
     snapshotScale: {x: 1, y: 1}
-  - id: s2_logo
+  - id: s2_mv
     displayNames:
     - locale: 40
-      value: s2_logo
-    resourcePath: Backgrounds/wuhui/s2_logo
+      value: s2_mv
+    resourcePath: Backgrounds/wuhui/s2_mv
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}
+  - id: s2_tuisong
+    displayNames:
+    - locale: 40
+      value: s2_tuisong
+    resourcePath: Backgrounds/wuhui/s2_tuisong
     snapshotOffset: {x: 0, y: 0}
     snapshotScale: {x: 1, y: 1}

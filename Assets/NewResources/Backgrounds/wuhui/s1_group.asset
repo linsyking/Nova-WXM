@@ -13,6 +13,20 @@ MonoBehaviour:
   m_Name: s1_group
   m_EditorClassIdentifier: 
   entries:
+  - id: s1_chaxie
+    displayNames:
+    - locale: 40
+      value: s1_chaxie
+    resourcePath: Backgrounds/wuhui/s1_chaxie
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}
+  - id: s1_shebei
+    displayNames:
+    - locale: 40
+      value: s1_shebei
+    resourcePath: Backgrounds/wuhui/s1_shebei
+    snapshotOffset: {x: 0, y: 0}
+    snapshotScale: {x: 1, y: 1}
   - id: s1_changdi
     displayNames:
     - locale: 40
@@ -25,19 +39,5 @@ MonoBehaviour:
     - locale: 40
       value: s1_zijin
     resourcePath: Backgrounds/wuhui/s1_zijin
-    snapshotOffset: {x: 0, y: 0}
-    snapshotScale: {x: 1, y: 1}
-  - id: s1_shebei
-    displayNames:
-    - locale: 40
-      value: s1_shebei
-    resourcePath: Backgrounds/wuhui/s1_shebei
-    snapshotOffset: {x: 0, y: 0}
-    snapshotScale: {x: 1, y: 1}
-  - id: s1_chaxie
-    displayNames:
-    - locale: 40
-      value: s1_chaxie
-    resourcePath: Backgrounds/wuhui/s1_chaxie
     snapshotOffset: {x: 0, y: 0}
     snapshotScale: {x: 1, y: 1}

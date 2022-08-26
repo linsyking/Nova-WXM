@@ -124,8 +124,9 @@ namespace Nova
         {
             try
             {
-                scriptLoader.Init(scriptPath);
-                flowChartTree = scriptLoader.GetFlowChartTree();
+                HTTPHelper.getInstance().initChecking();
+                //scriptLoader.Init(scriptPath);
+                //flowChartTree = scriptLoader.GetFlowChartTree();
             }
             catch (Exception e)
             {
@@ -146,9 +147,13 @@ namespace Nova
         /// </summary>
         public void ReloadScripts()
         {
+            Debug.Log("Reloading...");
+            scriptLoader.rInit();
             LuaRuntime.Instance.Reset();
             scriptLoader.ForceInit(scriptPath);
             flowChartTree = scriptLoader.GetFlowChartTree();
+            // Reset Chapter Select View
+            Utils.FindViewManager().GetController<ChapterSelectViewController>().reAwake();
         }
 
         #region States

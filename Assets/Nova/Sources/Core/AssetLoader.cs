@@ -6,6 +6,7 @@ using UnityObject = UnityEngine.Object;
 using UnityEngine.Networking;
 using System.Collections;
 using System.IO;
+using Newtonsoft.Json;
 
 
 namespace Nova
@@ -56,6 +57,8 @@ namespace Nova
 
         private ABLoadStatus abStatus;
 
+        private List<string> abList = new List<string>();
+
         private readonly Dictionary<string, UnityObject> allLoadedTextures = new Dictionary<string, UnityObject>();
         private readonly Dictionary<string, bool> isLocked = new Dictionary<string, bool>();
 
@@ -87,7 +90,6 @@ namespace Nova
             I18n.LocaleChanged.AddListener(OnLocaleChanged);
 
             // Download all the ABs
-            downloadABs();
             LuaRuntime.Instance.BindObject("assetLoader", this);
         }
 
@@ -128,27 +130,58 @@ namespace Nova
 
         #region AB Management
 
-        private List<string> getAllABName()
-        {
-            // The names of all the ABs
-            return (new List<string>
-            {
-                "wuhui",
-                "data"
-            });
-        }
+        //private List<string> getAllABName()
+        //{
+        //    // The names of all the ABs
+        //    return (new List<string>
+        //    {
+        //        "wuhui",
+        //        "data"
+        //    });
+        //}
 
         public bool isABLoaded()
         {
             return abStatus != ABLoadStatus.Loading;
         }
 
+        private VersionInfo getCurrentVersionInfo()
+        {
+            if (PlayerPrefs.HasKey("versioninfo"))
+            {
+                var vs = JsonConvert.DeserializeObject<VersionInfo>(PlayerPrefs.GetString("versioninfo"));
+                return vs;
+            }
+            else
+                return null;
+        }
+
         public void downloadABs()
         {
+            if (PlayerPrefs.HasKey("versioninfo"))
+            {
+                var vs = JsonConvert.DeserializeObject<VersionInfo>(PlayerPrefs.GetString("versioninfo"));
+                abList = new List<string>(vs.bundleList);
+                StartCoroutine(c_DownloadAllAB());
+            }
+        }
+
+        public void downloadABs(List<string> ablist)
+        {
+            // Delete old list
+            //m_release_all();
+            //allLoadedTextures.Clear();
+            //foreach (var ab in assetBundles)
+            //{
+            //    assetBundles[ab.Key].Unload(true);
+            //}
+            //Debug.Log("Deleting assetbundles...");
+            assetBundles.Clear();
+            abList = ablist;
             StartCoroutine(c_DownloadAllAB());
         }
 
-        private T loadABSprite<T>(string abName, string rname) where T : UnityObject
+        private T loadABObject<T>(string abName, string rname) where T : UnityObject
         {
             //if (allLoadedTextures.ContainsKey($"{abName}/{rname}") && allLoadedTextures[$"{abName}/{rname}"] != null)
             //{
@@ -164,12 +197,20 @@ namespace Nova
                 Debug.Log("Snapshot file found, skip caching");
                 return lld;
             }
-            var fname = $"{abName}/{rname}";
-            l_add(fname, lld);
+
+            if (typeof(T) == typeof(Sprite) || typeof(T) == typeof(Texture))
+            {
+                var fname = $"{abName}/{rname}";
+                l_add(fname, lld);
+            }
+            else
+            {
+                Debug.Log("Non Texture File Loaded from AB, ignore caching");
+            }
             return lld;
         }
 
-        public T getABSprite<T>(string path) where T : UnityObject
+        public T getABObject<T>(string path) where T : UnityObject
         {
             Resources.UnloadUnusedAssets();
 
@@ -201,7 +242,7 @@ namespace Nova
                 if (index == -1)
                 {
                     // Search Mode
-                    var abNames = getAllABName();
+                    var abNames = abList;
                     foreach (var abName in abNames)
                     {
                         var ab = assetBundles[abName];
@@ -210,7 +251,7 @@ namespace Nova
                         {
                             // Found
                             Debug.Log($"Found Asset: {abName}/{rname}");
-                            return loadABSprite<T>(abName, rname);
+                            return loadABObject<T>(abName, rname);
                         }
                     }
                 }
@@ -219,7 +260,7 @@ namespace Nova
                     // Normal Mode
                     var dname = path.Substring(0, index);
                     Debug.Log($"Loading AB {dname}/{rname}");
-                    return loadABSprite<T>(dname, rname);
+                    return loadABObject<T>(dname, rname);
                 }
 
 
@@ -229,16 +270,20 @@ namespace Nova
 
         private IEnumerator c_DownloadAllAB()
         {
-            var names = getAllABName();
-            foreach (var name in names)
+            foreach (var name in abList)
             {
                 yield return StartCoroutine(c_DownloadAB(name));
             }
             if (abStatus == ABLoadStatus.Loading)
             {
                 Debug.Log("All ABs loaded!");
+                // Do something here after load all ABs
                 abStatus = ABLoadStatus.LoadedSuccessfully;
                 preloadAssets();
+
+                // init image gallery
+
+                Utils.FindViewManager().GetController<ImageGalleryController>().initImageGroupList();
             }
         }
 
@@ -247,7 +292,8 @@ namespace Nova
 #if UNITY_EDITOR
             UnityWebRequest request = UnityWebRequestAssetBundle.GetAssetBundle(Path.Combine(Application.streamingAssetsPath, $"{name}.bundle"));
 #else
-            UnityWebRequest request = UnityWebRequestAssetBundle.GetAssetBundle($"https://res.yydbxx.cn/res/player/StreamingAssets/{name}.bundle");
+            var cv = getCurrentVersionInfo().imgBaseUrl;
+            UnityWebRequest request = UnityWebRequestAssetBundle.GetAssetBundle(Path.Combine(cv, $"{name}.bundle"));
 #endif       
             yield return request.SendWebRequest();
             if (request.result != UnityWebRequest.Result.Success)
@@ -259,6 +305,7 @@ namespace Nova
             else
             {
                 var ab = (request.downloadHandler as DownloadHandlerAssetBundle).assetBundle;
+                Debug.Log($"Adding {name}");
                 assetBundles.Add(name, ab);
                 Debug.Log($"Load AB {name} successfully!");
             }
@@ -272,11 +319,7 @@ namespace Nova
         private void preloadAssets()
         {
             // Preload some assets at the beginning
-            var spriteList = new List<string>
-            {
-                //"data/test1",
-                "wuhui/entry"
-            };
+            var spriteList = HTTPHelper.getInstance().getCurrentVersionInfo().imgPreloadList;
             foreach (var sprite in spriteList)
             {
                 preloadAsset(sprite);
@@ -285,7 +328,7 @@ namespace Nova
 
         public void preloadAsset(string name)
         {
-            getABSprite<Sprite>(name);
+            getABObject<Sprite>(name);
             l_remove(name);
             Resources.UnloadUnusedAssets();
         }
@@ -400,7 +443,7 @@ namespace Nova
             if (typeof(T) == typeof(Sprite) || typeof(T) == typeof(Texture))
             {
                 // Image Resources
-                return Utils.FindNovaGameController().AssetLoader.getABSprite<T>(path);
+                return Utils.FindNovaGameController().AssetLoader.getABObject<T>(path);
 
             }
             T ret = LoadOrNull<T>(path);

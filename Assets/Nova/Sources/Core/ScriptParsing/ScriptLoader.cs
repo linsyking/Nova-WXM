@@ -1,10 +1,13 @@
 using LuaInterface;
+using Newtonsoft.Json.Linq;
 using Nova.Script;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Nova
 {
@@ -33,9 +36,13 @@ namespace Nova
             {
                 return;
             }
+            HTTPHelper.getInstance().initChecking();
+            //ForceInit(path);
+            inited = true;
+        }
 
-            ForceInit(path);
-
+        public void rInit()
+        {
             inited = true;
         }
 
@@ -88,37 +95,26 @@ namespace Nova
 
             flowChartTree.Unfreeze();
 
-            foreach (var locale in I18n.SupportedLocales)
-            {
-                stateLocale = locale;
+            var contents = Utils.FindNovaGameController().httpHelper.getScriptJSON();
+            JArray rawObjs = JArray.Parse(contents);
+            List<string> objs = rawObjs.ToObject<List<string>>();
 
-                string localizedPath = path;
-                if (locale != I18n.DefaultLocale)
+
+            foreach (var script in objs)
+            {
+                if (onlyIncludedNames.Count > 0 && !onlyIncludedNames.Contains(script))
                 {
-                    localizedPath = I18n.LocalizedResourcesPath + locale + "/" + path;
+                    continue;
                 }
 
-                var scripts = Resources.LoadAll(localizedPath, typeof(TextAsset)).Cast<TextAsset>();
-                foreach (var script in scripts)
+
+                try
                 {
-                    if (onlyIncludedNames.Count > 0 && !onlyIncludedNames.Contains(script.name))
-                    {
-                        continue;
-                    }
-
-#if UNITY_EDITOR
-                    var scriptPath = AssetDatabase.GetAssetPath(script);
-                    //Debug.Log($"Nova: Parse script {scriptPath}");
-#endif
-
-                    try
-                    {
-                        ParseScript(script);
-                    }
-                    catch (ParseException e)
-                    {
-                        throw new ParseException($"Failed to parse {script.name}", e);
-                    }
+                    ParseScript(script);
+                }
+                catch (ParseException e)
+                {
+                    throw new ParseException($"Failed to parse {script}", e);
                 }
             }
 
@@ -198,12 +194,14 @@ namespace Nova
         /// <summary>
         /// Parse the given TextAsset to chunks and add them to currentNode.
         /// </summary>
-        private void ParseScript(TextAsset script)
+        private void ParseScript(string script)
         {
-            hiddenCharacterNames.Clear();
-            LuaRuntime.Instance.GetFunction("action_new_file").Call(script.name);
+            var scriptText = Utils.FindNovaGameController().httpHelper.getFileContent(script);
 
-            var blocks = Parser.Parse(script.text).blocks;
+            hiddenCharacterNames.Clear();
+            LuaRuntime.Instance.GetFunction("action_new_file").Call(script);
+
+            var blocks = Parser.Parse(scriptText).blocks;
 
             if (blocks.Count == 0)
             {

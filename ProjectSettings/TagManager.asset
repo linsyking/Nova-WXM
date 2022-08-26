@@ -9,6 +9,7 @@ TagManager:
   - RenderManager
   - UIRoot
   - SpriteLoader
+  - UpdateInfo
   layers:
   - Default
   - TransparentFX

@@ -18,6 +18,7 @@ namespace Nova
         public InputHelper InputHelper { get; private set; }
         public NovaAnimation PerDialogueAnimation { get; private set; }
         public NovaAnimation HoldingAnimation { get; private set; }
+        public HTTPHelper httpHelper { get; private set; }
 
         private void Awake()
         {
@@ -32,6 +33,7 @@ namespace Nova
             InputHelper = FindComponent<InputHelper>();
             PerDialogueAnimation = FindComponent<NovaAnimation>("NovaAnimation/PerDialogue");
             HoldingAnimation = FindComponent<NovaAnimation>("NovaAnimation/Holding");
+            httpHelper = FindComponent<HTTPHelper>();
 
             inputEnabled = true;
         }

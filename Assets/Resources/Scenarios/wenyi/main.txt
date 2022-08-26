@@ -1,8 +1,0 @@
-@<|
-label 'wenyi'
-|>
-<|
-set_box()
-|>
-Hi
-@<| is_end() |>

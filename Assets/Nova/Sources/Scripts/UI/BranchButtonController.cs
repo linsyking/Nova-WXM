@@ -56,7 +56,7 @@ namespace Nova
             {
                 // TODO: preload
                 //image.sprite = AssetLoader.Load<Sprite>(System.IO.Path.Combine(imageFolder, imageInfo.name));
-                image.sprite = Utils.FindNovaGameController().AssetLoader.getABSprite<Sprite>(imageInfo.name);
+                image.sprite = Utils.FindNovaGameController().AssetLoader.getABObject<Sprite>(imageInfo.name);
                 image.SetNativeSize();
             }
         }

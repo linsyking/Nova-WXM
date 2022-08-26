@@ -28,7 +28,7 @@ MonoBehaviour:
     HideAfterCallMain: 1
     preloadFiles: 
     Orientation: 1
-    bgImageSrc: Assets/WX-WASM-SDK/wechat-default/images/background.jpg
+    bgImageSrc: Assets/NewResources/Chore/background.jpg
     dataFileSubPrefix: 
     maxStorage: 200
     defaultReleaseSize: 31457280

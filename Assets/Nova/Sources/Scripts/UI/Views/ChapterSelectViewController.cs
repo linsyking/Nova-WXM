@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -33,6 +33,19 @@ namespace Nova
             logController = viewManager.GetController<LogController>();
             nameSorter = GetComponent<NameSorter>();
 
+            //startNodeNames = gameState.GetAllStartNodeNames();
+            //if (nameSorter && nameSorter.matchers.Count > 0)
+            //{
+            //    startNodeNames = nameSorter.Sort(startNodeNames).ToList();
+            //}
+
+            //unlockedStartNodeNames = gameState.GetAllUnlockedStartNodeNames();
+
+            returnButton.onClick.AddListener(Hide);
+        }
+
+        public void reAwake()
+        {
             startNodeNames = gameState.GetAllStartNodeNames();
             if (nameSorter && nameSorter.matchers.Count > 0)
             {
@@ -40,13 +53,6 @@ namespace Nova
             }
 
             unlockedStartNodeNames = gameState.GetAllUnlockedStartNodeNames();
-
-            returnButton.onClick.AddListener(Hide);
-        }
-
-        protected override void Start()
-        {
-            base.Start();
 
             checkpointManager.Init();
 
@@ -57,6 +63,12 @@ namespace Nova
                 button.onClick.AddListener(() => Hide(() => BeginChapter(chapter)));
                 return new KeyValuePair<string, GameObject>(chapter, go);
             }).ToDictionary(p => p.Key, p => p.Value);
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+
         }
 
         public override void Show(Action onFinish)

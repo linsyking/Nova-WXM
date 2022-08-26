@@ -13,7 +13,7 @@ namespace Nova
     {
         public const string ImageUnlockStatusKey = "image_unlock_status";
 
-        public ImageGroupList imageGroupList;
+        private ImageGroupList imageGroupList;
         public GameObject snapshotEntryPrefab;
         public int maxRow;
         public int maxCol;
@@ -64,7 +64,7 @@ namespace Nova
             checkpointManager.Init();
 
             imageViewer.Hide();
-            ShowPage();
+            //ShowPage();
         }
 
         public override void Show(Action onFinish)
@@ -75,8 +75,16 @@ namespace Nova
             base.Show(onFinish);
         }
 
+        public void initImageGroupList()
+        {
+            imageGroupList =  Utils.FindNovaGameController().AssetLoader.getABObject<ImageGroupList>("data/imgGroup");
+            ShowPage();
+        }
+
         private void ShowPage()
         {
+            Debug.Log("Loading Image Gallery");
+
             leftButton.interactable = page > 1;
             rightButton.interactable = page < pageCount;
             pageText.text = $"{page} / {pageCount}";
@@ -103,7 +111,7 @@ namespace Nova
                             entry.snapshot.sprite =
                                 LoadSpriteNew.LoadNewSprite(group.entries[firstUnlocked].snapshotResourcePath);
 #else
-                            entry.snapshot.sprite = Utils.FindNovaGameController().AssetLoader.getABSprite<Sprite>(Path.GetFileName(group.entries[firstUnlocked].snapshotResourcePath) + ".jpg");
+                            entry.snapshot.sprite = Utils.FindNovaGameController().AssetLoader.getABObject<Sprite>(Path.GetFileName(group.entries[firstUnlocked].snapshotResourcePath) + ".jpg");
 #endif
                             entry.button.interactable = true;
                             entry.button.onClick.AddListener(() => ShowGroup(group, unlockInfo));

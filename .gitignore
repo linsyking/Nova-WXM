@@ -12,6 +12,7 @@
 !/Assets/**/*.meta
 /Assets/AssetStoreTools*
 /Assets/Plugins*
+/Assets/StreamingAssets*
 
 /Assets/Nova/Sources/ThirdParty/ToLua/Source/Generate/*
 /Assets/Resources/Lua*
