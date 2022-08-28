@@ -3,12 +3,13 @@
 import os
 import re
 import unicodedata
+import sys
 
 from luaparser import astnodes
 from nova_script_parser import (get_node_name, normalize_dialogue,
                                 parse_chapters, walk_functions)
 
-in_dir = '../../Assets/Resources/Scenarios/'
+in_dir = './'
 template_filename = 'template.txt'
 
 
@@ -128,7 +129,7 @@ def lint_file(in_filename):
         chapters = parse_chapters(f, keep_line_num=True)
 
     for chapter_name, entries, _, _ in chapters:
-        print(chapter_name)
+        # print(chapter_name)
         anim_hold_tracked = False
         for code, chara_name, dialogue, line_num in entries:
             if code and not dialogue:
@@ -143,13 +144,14 @@ def lint_file(in_filename):
 
 
 def main():
-    with open(template_filename, 'r', encoding='utf-8') as f_template:
-        for line in f_template:
-            if line.startswith('@include'):
-                in_filename = os.path.join(in_dir, line.strip().split()[1])
-                print(in_filename)
-                lint_file(in_filename)
-                print()
+    av = sys.argv
+    if len(av) != 2:
+        print('Usage: lint.py filepath')
+        exit(0)
+    in_filename = av[1]
+    print(in_filename)
+    lint_file(in_filename)
+    print("Finished Parsing")
 
 
 if __name__ == '__main__':

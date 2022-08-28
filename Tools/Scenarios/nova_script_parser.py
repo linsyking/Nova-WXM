@@ -13,8 +13,9 @@ def commit_eager_code(chapters, now_chapter_name, now_entries,
     if now_head_eager_code is None:
         match = re.compile(r'label[ \(]\'(.*?)\'').search(now_eager_code)
         if not match:
-            raise ValueError(
-                f'label() not found in head eager code:\n{now_eager_code}')
+            print(
+                f'label() not found in head eager code:\n{now_eager_code}\nnear line {line_num + 1}\nI guess you misspell some keywords before it.')
+            exit(-1)
         now_chapter_name = match.group(1)
         now_entries = []
         now_head_eager_code = now_eager_code
@@ -81,6 +82,19 @@ def parse_chapters(lines, keep_line_num=False):
 
     for line_num, line in enumerate(lines):
         line = line.rstrip()
+
+        # Check error
+
+        if line.startswith('@<|'):
+            if line != "@<|" and not line.startswith('@<| '):
+                print(f"Error: cannot find space after @<| definition near line {line_num + 1}")
+                exit(-1)
+
+        if line.endswith('|>'):
+            if line != "|>" and not line.endswith(' |>'):
+                print(
+                    f"Error: cannot find space before |> definition near line {line_num + 1}")
+                exit(-1)
 
         if state == STATE_TEXT:
             if line.startswith('@<|'):
