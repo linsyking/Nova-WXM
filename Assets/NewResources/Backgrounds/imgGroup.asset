@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: imgGroup
   m_EditorClassIdentifier: 
   groups:
+  - {fileID: 11400000, guid: b15079af8cab56f44bd734d93da55d4a, type: 2}
   - {fileID: 11400000, guid: 84966ca8bcb7502469cbfc478dabef50, type: 2}
-  - {fileID: 11400000, guid: 5a7cf174d15357c4b879bbcc2077be7f, type: 2}
+  - {fileID: 11400000, guid: 2dad640ca7c9e0045bce00af8ff3094b, type: 2}
+  - {fileID: 11400000, guid: 982e128ddbb8f4a489d7e344c7101aa6, type: 2}
   - {fileID: 11400000, guid: c3d6b3e2a38885049a155aa97270e320, type: 2}
   - {fileID: 11400000, guid: 5219d1ffa7a68da4982c11dc5e927ca8, type: 2}
   - {fileID: 11400000, guid: e18a549a933be9c4b90bb2273f4b9169, type: 2}

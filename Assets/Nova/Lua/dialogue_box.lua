@@ -95,7 +95,7 @@ end
 box_pos_presets = {
     bottom = {
         offset = {0, 0, 0, 0},
-        anchor = {0.1, 0.9, 0.05, 0.35},
+        anchor = {0.05, 0.98, 0.05, 0.35},
         update_mode = Nova.DialogueBoxController.DialogueUpdateMode.Overwrite,
         theme = Nova.DialogueBoxController.Theme.Default,
     },

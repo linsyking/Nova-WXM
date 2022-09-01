@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: BGMList
   m_EditorClassIdentifier: 
   entries:
-  - {fileID: 11400000, guid: e18ced0401850494185532112efccba9, type: 2}
-  - {fileID: 11400000, guid: 784cc570f08afe647b2cb69d2e6c7758, type: 2}
+  - {fileID: 11400000, guid: 85f99bf8d92fe6a4a9a52a150770c647, type: 2}

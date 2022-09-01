@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ad38311eb714f96a1b9f62be871f1e5, type: 3}
-  m_Name: xiben_entry
+  m_Name: main_entry
   m_EditorClassIdentifier: 
-  id: xiben
+  id: main
   displayNames:
   - locale: 40
-    value: "\u964DE\u5927\u8C03\u591C\u66F2"
-  - locale: 10
-    value: Nocturne in E-flat Major
-  resourcePath: BGM/xiben
+    value: "\u4E3B\u754C\u9762\u80CC\u666F\u97F3\u4E50"
+  resourcePath: BGM/main
   loopBeginSample: 0
-  loopEndSample: 5977312
+  loopEndSample: 4791940

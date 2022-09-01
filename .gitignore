@@ -8,6 +8,7 @@
 /[Oo]bj/
 /Temp/
 /UserSettings/
+/Assets/NewResources*
 
 !/Assets/**/*.meta
 /Assets/AssetStoreTools*

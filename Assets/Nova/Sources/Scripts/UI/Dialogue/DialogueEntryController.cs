@@ -31,7 +31,7 @@ namespace Nova
         {
             if (inited) return;
 
-            nameBox = transform.Find("Name").GetComponent<Text>();
+            nameBox = transform.Find("NameEnd").Find("Name").GetComponent<Text>();
             var textTransform = transform.Find("Content/Text");
             contentBox = textTransform.GetComponent<TMP_Text>();
             contentProxy = textTransform.GetComponent<TextProxy>();

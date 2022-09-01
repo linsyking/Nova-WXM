@@ -47,7 +47,7 @@ MonoBehaviour:
     ScriptOnly: 0
     profilingFuncs: 0
     Webgl2: 0
-    DeleteStreamingAssets: 1
+    DeleteStreamingAssets: 0
     ProfilingMemory: 0
   CompressTexture:
     halfSize: 0
