@@ -938,6 +938,102 @@ MonoBehaviour:
   luaGlobalName: cam_mask
   maskLayer: 17
   maskCamera: {fileID: 1663381252}
+--- !u!1001 &652684634
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 871599197}
+    m_Modifications:
+    - target: {fileID: 537562887, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: secondaryConfigKeyName
+      value: LanhuVoice
+      objectReference: {fileID: 0}
+    - target: {fileID: 537562890, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: pixelsPerUnit
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573084045679288, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_Name
+      value: Lanhu2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114018086876222034, guid: e708087f7cf8343899832a554e39a531,
+        type: 3}
+      propertyPath: imageFolder
+      value: Standings/Lanhu
+      objectReference: {fileID: 0}
+    - target: {fileID: 114018086876222034, guid: e708087f7cf8343899832a554e39a531,
+        type: 3}
+      propertyPath: voiceFolder
+      value: Voices/Lanhu
+      objectReference: {fileID: 0}
+    - target: {fileID: 114018086876222034, guid: e708087f7cf8343899832a554e39a531,
+        type: 3}
+      propertyPath: spriteMerger
+      value: 
+      objectReference: {fileID: 25935806}
+    - target: {fileID: 114018086876222034, guid: e708087f7cf8343899832a554e39a531,
+        type: 3}
+      propertyPath: luaGlobalName
+      value: lanhu2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114018086876222034, guid: e708087f7cf8343899832a554e39a531,
+        type: 3}
+      propertyPath: characterTextureMerger
+      value: 
+      objectReference: {fileID: 25935806}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e708087f7cf8343899832a554e39a531, type: 3}
+--- !u!4 &652684635 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531,
+    type: 3}
+  m_PrefabInstance: {fileID: 652684634}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &671619210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,92 +1458,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3515642666480235690}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &825554711
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 871599197}
-    m_Modifications:
-    - target: {fileID: 537562887, guid: e708087f7cf8343899832a554e39a531, type: 3}
-      propertyPath: secondaryConfigKeyName
-      value: XibenVoice
-      objectReference: {fileID: 0}
-    - target: {fileID: 1573084045679288, guid: e708087f7cf8343899832a554e39a531, type: 3}
-      propertyPath: m_Name
-      value: Xiben
-      objectReference: {fileID: 0}
-    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114018086876222034, guid: e708087f7cf8343899832a554e39a531,
-        type: 3}
-      propertyPath: imageFolder
-      value: Standings/Xiben
-      objectReference: {fileID: 0}
-    - target: {fileID: 114018086876222034, guid: e708087f7cf8343899832a554e39a531,
-        type: 3}
-      propertyPath: voiceFolder
-      value: Voices/Xiben
-      objectReference: {fileID: 0}
-    - target: {fileID: 114018086876222034, guid: e708087f7cf8343899832a554e39a531,
-        type: 3}
-      propertyPath: spriteMerger
-      value: 
-      objectReference: {fileID: 25935806}
-    - target: {fileID: 114018086876222034, guid: e708087f7cf8343899832a554e39a531,
-        type: 3}
-      propertyPath: luaGlobalName
-      value: xiben
-      objectReference: {fileID: 0}
-    - target: {fileID: 114018086876222034, guid: e708087f7cf8343899832a554e39a531,
-        type: 3}
-      propertyPath: characterTextureMerger
-      value: 
-      objectReference: {fileID: 25935806}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e708087f7cf8343899832a554e39a531, type: 3}
 --- !u!1 &835077100
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,7 +1579,8 @@ Transform:
   m_Children:
   - {fileID: 25935805}
   - {fileID: 702255951}
-  - {fileID: 1964594892}
+  - {fileID: 1467874032}
+  - {fileID: 652684635}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1594,7 +1605,7 @@ MonoBehaviour:
     characterController: {fileID: 0}
     prefix: 
   - characterName: "\u5B59\u897F\u672C"
-    characterController: {fileID: 1964594893}
+    characterController: {fileID: 0}
     prefix: 
   - characterName: "\u9648\u9AD8\u5929"
     characterController: {fileID: 0}
@@ -2706,6 +2717,102 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4003918090870650449}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1467874031
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 871599197}
+    m_Modifications:
+    - target: {fileID: 537562887, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: secondaryConfigKeyName
+      value: LanhuVoice
+      objectReference: {fileID: 0}
+    - target: {fileID: 537562890, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: pixelsPerUnit
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573084045679288, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_Name
+      value: Lanhu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114018086876222034, guid: e708087f7cf8343899832a554e39a531,
+        type: 3}
+      propertyPath: imageFolder
+      value: Standings/Lanhu
+      objectReference: {fileID: 0}
+    - target: {fileID: 114018086876222034, guid: e708087f7cf8343899832a554e39a531,
+        type: 3}
+      propertyPath: voiceFolder
+      value: Voices/Lanhu
+      objectReference: {fileID: 0}
+    - target: {fileID: 114018086876222034, guid: e708087f7cf8343899832a554e39a531,
+        type: 3}
+      propertyPath: spriteMerger
+      value: 
+      objectReference: {fileID: 25935806}
+    - target: {fileID: 114018086876222034, guid: e708087f7cf8343899832a554e39a531,
+        type: 3}
+      propertyPath: luaGlobalName
+      value: lanhu
+      objectReference: {fileID: 0}
+    - target: {fileID: 114018086876222034, guid: e708087f7cf8343899832a554e39a531,
+        type: 3}
+      propertyPath: characterTextureMerger
+      value: 
+      objectReference: {fileID: 25935806}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e708087f7cf8343899832a554e39a531, type: 3}
+--- !u!4 &1467874032 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531,
+    type: 3}
+  m_PrefabInstance: {fileID: 1467874031}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1542636874 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4269582755980200, guid: ed28a84bf5bed423a9613c9aefa4dd7b,
@@ -3127,24 +3234,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1891790024}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1964594892 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4223318419706732, guid: e708087f7cf8343899832a554e39a531,
-    type: 3}
-  m_PrefabInstance: {fileID: 825554711}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1964594893 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114018086876222034, guid: e708087f7cf8343899832a554e39a531,
-    type: 3}
-  m_PrefabInstance: {fileID: 825554711}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9c6e380c82c7444dbeb5d75b3600170, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1993674597
 GameObject:
   m_ObjectHideFlags: 0
@@ -6620,7 +6709,7 @@ PrefabInstance:
     - target: {fileID: 390191761, guid: ba2f88a38a7e341dd95278c30faf99d9, type: 3}
       propertyPath: avatarConfigs.Array.data[2].characterController
       value: 
-      objectReference: {fileID: 1964594893}
+      objectReference: {fileID: 0}
     - target: {fileID: 390191761, guid: ba2f88a38a7e341dd95278c30faf99d9, type: 3}
       propertyPath: avatarConfigs.Array.data[3].characterController
       value: 

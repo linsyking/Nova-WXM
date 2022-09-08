@@ -107,7 +107,7 @@ namespace Nova
                     downloadAB();
                     Utils.FindNovaGameController().GameState.ReloadScripts();
                     GameObject.FindGameObjectWithTag("UpdateInfo").SetActive(false);
-                    Alert.Show("更新提示", $"提示：已更新图片至v{versionInfo.imgVersion}\n{versionInfo.customInfo}");
+                    Alert.Show("更新提示", $"已更新图片至v{versionInfo.imgVersion}\n{versionInfo.customInfo}");
                     yield break;
                 }
             }
@@ -132,7 +132,7 @@ namespace Nova
             Utils.FindNovaGameController().GameState.ReloadScripts();
 
             GameObject.FindGameObjectWithTag("UpdateInfo").SetActive(false);
-            Alert.Show("更新提示", $"提示：已更新剧本至v{versionInfo.scriptVersion},更新图片至v{versionInfo.imgVersion}\n{versionInfo.customInfo}");
+            Alert.Show("更新提示", $"已更新剧本至v{versionInfo.scriptVersion},更新图片至v{versionInfo.imgVersion}\n{versionInfo.customInfo}");
 
         }
 

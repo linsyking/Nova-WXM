@@ -408,7 +408,7 @@ namespace Nova
         public void AutoSaveBookmark()
         {
             _autoSaveBookmark((int)BookmarkType.AutoSave, I18n.__("bookmark.autosave.page"));
-            Alert.Show("已在此处自动存档");
+            //Alert.Show("已在此处自动存档");
         }
 
         private void _quickSaveBookmark()
